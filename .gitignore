@@ -41,5 +41,6 @@ tutorial/
 org-clock-save.el
 .\#*
 emms/
+projectile.cache
 projectile-bookmarks.eld
 history

@@ -1,5 +1,6 @@
 ;; Activate occur easily inside isearch
 (define-key isearch-mode-map (kbd "C-o") 'isearch-occur)
+(define-key isearch-mode-map (kbd "M-i") 'helm-swoop-from-isearch)
 
 ;; Search back/forth for the symbol at point
 ;; See http://www.emacswiki.org/emacs/SearchAtPoint
@@ -60,5 +61,8 @@ This is useful when followed by an immediate kill."
 
 (define-key isearch-mode-map [(control return)] 'isearch-exit-other-end)
 
+; Anzu - shows number of isearch matches
+(require 'anzu)
+(global-anzu-mode t)
 
 (provide 'init-isearch)

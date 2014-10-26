@@ -61,6 +61,7 @@
 
 (require 'init-elpa)
 (require 'init-exec-path) ;; Set up $PATH
+;; (require 'init-smart-mode-line)
 (require 'init-frame-hooks)
 ;; any file use flyspell should be initialized after init-spelling.el
 ;; actually, I don't know which major-mode use flyspell.
@@ -138,8 +139,11 @@
                              init-elnode
                              init-doxygen
                              init-pomodoro
-                             init-emacspeak
+                             ;; init-emacspeak
                              init-key-chord
+                             init-registers
+                             init-deft
+                             init-projectile
                              ;; init-artbollocks-mode
                              ;; init-emacs-w3m
                              init-semantic))
@@ -160,9 +164,11 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ansi-color-names-vector ["#212526" "#ff4b4b" "#b4fa70" "#fce94f" "#729fcf" "#ad7fa8" "#8cc4ff" "#eeeeec"])
  '(bmkp-last-as-first-bookmark-file "~/.emacs.d/.bookmarks.el")
  '(column-number-mode t)
  '(custom-enabled-themes (quote (tango-dark)))
+ '(custom-safe-themes (quote ("3a727bdc09a7a141e58925258b6e873c65ccf393b2240c51553098ca93957723" "6a37be365d1d95fad2f4d185e51928c789ef7a4ccf17e7ca13ad63a8bf5b922f" "756597b162f1be60a12dbd52bab71d40d6a2845a3e3c2584c6573ee9c332a66e" default)))
  '(display-time-mode t)
  '(safe-local-variable-values (quote ((emacs-lisp-docstring-fill-column . 75) (ruby-compilation-executable . "ruby") (ruby-compilation-executable . "ruby1.8") (ruby-compilation-executable . "ruby1.9") (ruby-compilation-executable . "rbx") (ruby-compilation-executable . "jruby"))))
  '(session-use-package t nil (session))
@@ -173,7 +179,14 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "DejaVu Sans Mono" :foundry "outline" :slant normal :weight normal :height 113 :width normal))))
+ '(diredp-dir-heading ((t (:background "#00003F3F3434" :foreground "magenta"))) t)
+ '(diredp-exec-priv ((t (:background "blue" :foreground "black"))) t)
+ '(diredp-read-priv ((t (:background "gold" :foreground "black"))) t)
+ '(diredp-write-priv ((t (:background "lime green" :foreground "black"))) t)
+ '(hl-line ((t (:underline "green" :weight normal))) t)
+ '(org-todo ((t (:foreground "red" :weight bold))) t)
  '(window-numbering-face ((t (:foreground "DeepPink" :underline "DeepPink" :weight bold))) t))
+
 ;;; Local Variables:
 ;;; no-byte-compile: t
 ;;; End:
