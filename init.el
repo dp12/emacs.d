@@ -129,10 +129,6 @@
 (require 'init-stripe-buffer)
 (require 'init-eim) ;;  cannot be idle-required
 
-;; color theme
-(require 'color-theme)
-(require 'color-theme-molokai)
-(color-theme-molokai)
 ;; misc has some crucial tools I need immediately
 (require 'init-misc)
 
@@ -143,8 +139,9 @@
                              init-doxygen
                              init-pomodoro
                              init-emacspeak
-                             init-artbollocks-mode
-                             init-emacs-w3m
+                             init-key-chord
+                             ;; init-artbollocks-mode
+                             ;; init-emacs-w3m
                              init-semantic))
 (idle-require-mode 1) ;; starts loading
 
@@ -163,13 +160,19 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(bmkp-last-as-first-bookmark-file "~/.emacs.bmk")
- '(safe-local-variable-values (quote ((emacs-lisp-docstring-fill-column . 75) (ruby-compilation-executable . "ruby") (ruby-compilation-executable . "ruby1.8") (ruby-compilation-executable . "ruby1.9") (ruby-compilation-executable . "rbx") (ruby-compilation-executable . "jruby")))))
+ '(bmkp-last-as-first-bookmark-file "~/.emacs.d/.bookmarks.el")
+ '(column-number-mode t)
+ '(custom-enabled-themes (quote (tango-dark)))
+ '(display-time-mode t)
+ '(safe-local-variable-values (quote ((emacs-lisp-docstring-fill-column . 75) (ruby-compilation-executable . "ruby") (ruby-compilation-executable . "ruby1.8") (ruby-compilation-executable . "ruby1.9") (ruby-compilation-executable . "rbx") (ruby-compilation-executable . "jruby"))))
+ '(session-use-package t nil (session))
+ '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(default ((t (:family "DejaVu Sans Mono" :foundry "outline" :slant normal :weight normal :height 113 :width normal))))
  '(window-numbering-face ((t (:foreground "DeepPink" :underline "DeepPink" :weight bold))) t))
 ;;; Local Variables:
 ;;; no-byte-compile: t

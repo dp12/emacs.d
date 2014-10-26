@@ -1,4 +1,5 @@
 (global-set-key (kbd "M-/") 'hippie-expand)
+(global-set-key "\C-xl" 'hippie-expand)
 
 ;; let hippie-expand support ctags
 ;; shamelessly copied from http://emacswiki.org/emacs/HippieExpand

@@ -17,8 +17,8 @@
   (setq c-basic-offset 4)
   (setq c-style-variables-are-local-p nil)
   ;give me NO newline automatically after electric expressions are entered
-  (setq c-auto-newline nil)
-
+ (setq c-auto-newline nil)
+ (setq c-hungry-delete-key t)
   ; @see http://xugx2007.blogspot.com.au/2007/06/benjamin-rutts-emacs-c-development-tips.html
   (setq compilation-window-height 8)
   (setq compilation-finish-function
@@ -108,5 +108,6 @@
             (when (derived-mode-p 'c-mode 'c++-mode)
               (my-c-mode-hook))
             ))
+(defalias 'chi 'c-toggle-hungry-state)
 
 (provide 'init-cc-mode)

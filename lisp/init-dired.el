@@ -27,10 +27,12 @@ if no files marked, always operate on current line in dired-mode
   '(progn
      ;; {dired-details
      (setq-default dired-details-hidden-string "")
+     (setq dired-listing-switches "-alh")
      (define-key dired-mode-map "(" 'dired-details-toggle)
      (define-key dired-mode-map ")" 'dired-details-toggle)
      ;; }
      (define-key dired-mode-map "/" 'diredext-exec-git-command-in-shell)
+     (define-key dired-mode-map "a" 'ag)
 
      (require 'dired+)
      (setq dired-recursive-deletes 'top)
