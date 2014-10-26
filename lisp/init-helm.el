@@ -61,6 +61,7 @@
       (global-set-key (kbd "C-c f") 'helm-for-files)
       (global-set-key (kbd "C-c y") 'helm-c-yas-complete)
       (global-set-key (kbd "C-c i") 'helm-imenu)
+      (global-set-key (kbd "C-c r") 'helm-resume)
       )
   (global-set-key (kbd "C-x C-o") 'ffap)
   )

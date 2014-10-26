@@ -394,4 +394,7 @@ to replace the symbol under cursor"
 (evilnc-default-hotkeys)
 ;; }}
 
+; Evil org-mode keys
+;; (require 'evil-org)
+
 (provide 'init-evil)

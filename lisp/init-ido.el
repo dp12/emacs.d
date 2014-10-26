@@ -1,9 +1,14 @@
 ;; Use C-f during file selection to switch to regular find-file
+(require 'flx-ido)
 (require 'ido-ubiquitous)
 (ido-mode t)  ; use 'buffer rather than t to use only buffer switching
 (ido-everywhere t)
-;(ido-ubiquitous-mode t)
-(setq ido-enable-flex-matching t)
+;; (ido-ubiquitous-mode t)
+;; (setq ido-enable-flex-matching t)
+(ido-ubiquitous-mode 1)
+(ido-everywhere 1)
+;;(ido-vertical-mode 1)
+(flx-ido-mode 1)
 (setq ido-use-filename-at-point nil)
 (setq ido-auto-merge-work-directories-length 0)
 (setq ido-use-virtual-buffers t)
