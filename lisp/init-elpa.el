@@ -274,6 +274,8 @@ ARCHIVE is the string name of the package archive.")
 (require-package 'quack) ;; for scheme
 (require-package 'flx-ido)
 (require-package 'anzu)
+(require-package 'deft)
+(require-package 'projectile)
 ;; (require-package 'command-frequency)
 
 (provide 'init-elpa)
