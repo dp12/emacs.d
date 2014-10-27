@@ -276,6 +276,7 @@ ARCHIVE is the string name of the package archive.")
 (require-package 'anzu)
 (require-package 'deft)
 (require-package 'projectile)
+(require-package 'smart-mode-line)
 ;; (require-package 'command-frequency)
 
 (provide 'init-elpa)
