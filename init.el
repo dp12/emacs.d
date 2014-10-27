@@ -139,13 +139,9 @@
                              init-elnode
                              init-doxygen
                              init-pomodoro
-                             ;; init-emacspeak
-                             init-key-chord
-                             init-registers
-                             init-deft
-                             init-projectile
-                             ;; init-artbollocks-mode
-                             ;; init-emacs-w3m
+                             init-emacspeak
+                             init-artbollocks-mode
+                             init-emacs-w3m
                              init-semantic))
 (idle-require-mode 1) ;; starts loading
 
