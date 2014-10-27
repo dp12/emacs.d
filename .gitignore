@@ -44,3 +44,6 @@ emms/
 projectile.cache
 projectile-bookmarks.eld
 history
+ido.last
+init.el
+recentf
