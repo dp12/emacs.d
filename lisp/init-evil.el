@@ -9,11 +9,12 @@
 ;; {{@see https://github.com/timcharper/evil-surround
 (require 'evil-surround)
 (global-evil-surround-mode 1)
-(evil-define-key 'visual evil-surround-mode-map "s" 'evil-substitute)
+;; Uncomment to reenable subsitute on visual selection
+;; (evil-define-key 'visual evil-surround-mode-map "s" 'evil-substitute)
 ;; }}
 
 ;; Don't move back the cursor one position when exiting insert mode
-(setq evil-move-cursor-back nil)
+;; (setq evil-move-cursor-back nil)
 
 (defun toggle-org-or-message-mode ()
   (interactive)

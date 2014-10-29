@@ -38,6 +38,8 @@
 (transient-mark-mode t)
 
 (define-key global-map (kbd "RET") 'newline-and-indent)
+;; Override evil-repeat-pop-next to get back our tag-finding!
+(define-key evil-normal-state-map (kbd "M-.") 'ggtags-find-definition)
 
 (add-to-list 'auto-mode-alist '("\\.[Cc][Ss][Vv]\\'" . csv-mode))
 (autoload 'csv-mode "csv-mode" "Major mode for comma-separated value files." t)

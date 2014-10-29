@@ -19,6 +19,7 @@
   ;give me NO newline automatically after electric expressions are entered
  (setq c-auto-newline nil)
  (setq c-hungry-delete-key t)
+ ;Make _ part of words
   ; @see http://xugx2007.blogspot.com.au/2007/06/benjamin-rutts-emacs-c-development-tips.html
   (setq compilation-window-height 8)
   (setq compilation-finish-function
@@ -104,6 +105,7 @@
 
               ;; gtags (GNU global) stuff
               (setq gtags-suggested-key-mapping t)
+			  (modify-syntax-entry ?_ "w")
               (if *emacs24* (ggtags-mode 1)))
             (when (derived-mode-p 'c-mode 'c++-mode)
               (my-c-mode-hook))
