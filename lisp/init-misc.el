@@ -527,11 +527,11 @@ grab matched string, jsonize them, and insert into kill ring"
        1))
    ))
 
-(defun my/paste-in-minibuffer ()
-  (local-set-key (kbd "M-y") 'paste-from-x-clipboard)
-  )
+;; (defun my/paste-in-minibuffer ()
+;;   (local-set-key (kbd "M-y") 'paste-from-x-clipboard)
+;;   )
 
-(add-hook 'minibuffer-setup-hook 'my/paste-in-minibuffer)
+;; (add-hook 'minibuffer-setup-hook 'my/paste-in-minibuffer)
 
 (defun paste-from-clipboard-and-cc-kill-ring ()
   "paste from clipboard and cc the content into kill ring"
