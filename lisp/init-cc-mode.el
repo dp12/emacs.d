@@ -102,6 +102,8 @@
               ;; indent
               (fix-c-indent-offset-according-to-syntax-context 'substatement 0)
               (fix-c-indent-offset-according-to-syntax-context 'func-decl-cont 0)
+			  (require 'ws-butler)
+			  (ws-butler-mode 1)
 
               ;; gtags (GNU global) stuff
               (setq gtags-suggested-key-mapping t)

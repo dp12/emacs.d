@@ -35,14 +35,17 @@
 ;; {{helm-gtags
 ;; customize
 (autoload 'helm-gtags-mode "helm-gtags" nil t)
-(setq helm-c-gtags-path-style 'relative)
-(setq helm-c-gtags-ignore-case t)
-(setq helm-c-gtags-read-only t)
+(setq
+ helm-c-gtags-path-style 'relative
+ helm-c-gtags-ignore-case t
+ helm-c-gtags-read-only t
+ helm-c-gtags-auto-update t
+ helm-gtags-use-input-at-cursor t
+ helm-gtags-pulse-at-cursor t
+ helm-gtags-suggested-key-mapping t)
 (add-hook 'c-mode-hook (lambda () (helm-gtags-mode)))
 (add-hook 'c++-mode-hook (lambda () (helm-gtags-mode)))
 ;; }}
-
-
 
 ;; key bindings
 (add-hook 'helm-gtags-mode-hook
@@ -51,7 +54,13 @@
               (local-set-key (kbd "M-r") 'helm-gtags-find-rtag)
               (local-set-key (kbd "M-s") 'helm-gtags-find-symbol)
               (local-set-key (kbd "C-t") 'helm-gtags-pop-stack)
-              (local-set-key (kbd "C-c C-f") 'helm-gtags-pop-stack)))
+              (local-set-key (kbd "C-c C-f") 'helm-gtags-pop-stack)
+				(define-key helm-gtags-mode-map (kbd "C-c g a") 'helm-gtags-tags-in-this-function)
+				(define-key helm-gtags-mode-map (kbd "C-j") 'helm-gtags-select)
+				(define-key helm-gtags-mode-map (kbd "M-.") 'helm-gtags-dwim)
+				(define-key helm-gtags-mode-map (kbd "M-,") 'helm-gtags-pop-stack)
+				(define-key helm-gtags-mode-map (kbd "C-c <") 'helm-gtags-previous-history)
+				(define-key helm-gtags-mode-map (kbd "C-c >") 'helm-gtags-next-history)))
 ;; ==end
 
 (if *emacs24*
@@ -60,7 +69,7 @@
       (global-set-key (kbd "C-x C-o") 'helm-find-files)
       (global-set-key (kbd "C-c f") 'helm-for-files)
       (global-set-key (kbd "C-c y") 'helm-c-yas-complete)
-      (global-set-key (kbd "C-c i") 'helm-imenu)
+      (global-set-key (kbd "C-c i") 'helm-semantic-or-imenu)
       (global-set-key (kbd "C-c r") 'helm-resume)
       )
   (global-set-key (kbd "C-x C-o") 'ffap)

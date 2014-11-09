@@ -277,6 +277,8 @@ ARCHIVE is the string name of the package archive.")
 (require-package 'deft)
 (require-package 'projectile)
 (require-package 'smart-mode-line)
+(require-package 'helm-gtags)
+(require-package 'ws-butler)
 ;; (require-package 'command-frequency)
 
 (provide 'init-elpa)

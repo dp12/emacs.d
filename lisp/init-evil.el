@@ -88,6 +88,8 @@
 (define-key evil-normal-state-map "+" 'evil-numbers/inc-at-pt)
 (define-key evil-normal-state-map "-" 'evil-numbers/dec-at-pt)
 (define-key evil-normal-state-map "go" 'goto-char)
+;; Override evil-repeat-pop-next to get back our tag-finding!
+(define-key evil-normal-state-map (kbd "M-.") 'ggtags-find-tag-dwim)
 
 ;; {{ evil-matchit
 (require 'evil-matchit)
