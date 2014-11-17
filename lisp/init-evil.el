@@ -9,6 +9,9 @@
 ;; {{@see https://github.com/timcharper/evil-surround
 (require 'evil-surround)
 (global-evil-surround-mode 1)
+
+;; Reclaim C-r for reverse i-search
+(define-key evil-normal-state-map "\C-r" 'isearch-backward-regexp)
 ;; Uncomment to reenable subsitute on visual selection
 ;; (evil-define-key 'visual evil-surround-mode-map "s" 'evil-substitute)
 ;; }}
