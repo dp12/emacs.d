@@ -96,7 +96,7 @@
 
 ;; {{ evil-matchit
 (require 'evil-matchit)
-(global-evil-matchit-mode 1)
+;; (global-evil-matchit-mode 1)
 ;; }}
 
 (eval-after-load "evil" '(setq expand-region-contract-fast-key "z"))
