@@ -422,7 +422,10 @@ grab matched string, cssize them, and insert into kill ring"
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 ;(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 ;; effective emacs item 9
+
+; Defaliases
 (defalias 'qrr 'query-replace-regexp)
+(defalias 'dw 'delete-trailing-whitespace)
 
 (setq-default regex-tool-backend 'perl)
 

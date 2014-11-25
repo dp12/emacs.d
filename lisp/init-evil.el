@@ -122,7 +122,8 @@
 
 
 (define-key evil-insert-state-map (kbd "M-a") 'move-beginning-of-line)
-(define-key evil-insert-state-map (kbd "C-e") 'move-end-of-line)
+;; Use C-e to do evil-copy-from-below
+;; (define-key evil-insert-state-map (kbd "C-e") 'move-end-of-line)
 (define-key evil-insert-state-map (kbd "M-e") 'move-end-of-line)
 (define-key evil-insert-state-map (kbd "C-k") 'kill-line)
 (define-key evil-insert-state-map (kbd "M-k") 'evil-normal-state)
