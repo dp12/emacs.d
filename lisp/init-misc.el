@@ -388,7 +388,6 @@ grab matched string, cssize them, and insert into kill ring"
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 ;(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 ;; effective emacs item 9
-
 (setq-default regex-tool-backend 'perl)
 
 ;; {{ work around color theme bug
@@ -1032,6 +1031,8 @@ The full path into relative path insert it as a local file link in org-mode"
 ;;----------------------------------------------------------------------------
 ;; dp12 Configurations
 ;;----------------------------------------------------------------------------
+; Enable word wrapping
+(global-visual-line-mode t)
 
 ;; Shift lines up and down with M-up and M-down
 (move-text-default-bindings)
