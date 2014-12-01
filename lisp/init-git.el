@@ -17,6 +17,7 @@
 ;; show the commit
 (autoload 'magit-show-commit "magit" "" t nil)
 
+(global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key [(meta f12)] 'magit-status)
 (global-set-key [(shift meta f12)] 'magit-status-somedir)
 

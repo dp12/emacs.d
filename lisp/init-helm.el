@@ -43,8 +43,8 @@
  helm-gtags-use-input-at-cursor t
  helm-gtags-pulse-at-cursor t)
  ;; helm-gtags-suggested-key-mapping t)
-(add-hook 'c-mode-hook (lambda () (helm-gtags-mode)))
-(add-hook 'c++-mode-hook (lambda () (helm-gtags-mode)))
+;;(add-hook 'c-mode-hook (lambda () (helm-gtags-mode)))
+;;(add-hook 'c++-mode-hook (lambda () (helm-gtags-mode)))
 ;; }}
 
 ;; key bindings

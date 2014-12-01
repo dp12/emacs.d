@@ -74,11 +74,6 @@
 ;;----------------------------------------------------------------------------
 (global-page-break-lines-mode)
 
-;;----------------------------------------------------------------------------
-;; Shift lines up and down with M-up and M-down
-;;----------------------------------------------------------------------------
-(move-text-default-bindings)
-
 (defun suspend-mode-during-cua-rect-selection (mode-name)
   "Add an advice to suspend `MODE-NAME' while selecting a CUA rectangle."
   (let ((flagvar (intern (format "%s-was-active-before-cua-rectangle" mode-name)))
@@ -151,35 +146,6 @@
 ;; (setq whitespace-style '(face empty tabs lines-tail trailing))
 ;; (global-whitespace-mode t)
 ;; }}
-
-; Comment toggle
-(defun comment-or-uncomment-region-or-line ()
-    "Comments or uncomments the region or the current line if there's no active region."
-    (interactive)
-    (let (beg end)
-        (if (region-active-p)
-            (setq beg (region-beginning) end (region-end))
-            (setq beg (line-beginning-position) end (line-end-position)))
-        (comment-or-uncomment-region beg end)
-        (next-line)))
-(global-set-key (kbd "M-;") 'comment-or-uncomment-region-or-line)
-(global-set-key (kbd "C-M-;") 'comment-dwim)
-
-; Shift-tab
-(global-set-key (kbd "<S-tab>") 'un-indent-by-removing-4-spaces)
-(global-set-key (kbd "<backtab>") 'un-indent-by-removing-4-spaces)
-(global-set-key (kbd "<M-S-i>") 'un-indent-by-removing-4-spaces)
-(defun un-indent-by-removing-4-spaces ()
-  "remove 4 spaces from beginning of of line"
-  (interactive)
-  (save-excursion
-    (save-match-data
-      (beginning-of-line)
-      ;; get rid of tabs at beginning of line
-      (when (looking-at "^\\s-+")
-        (untabify (match-beginning 0) (match-end 0)))
-      (when (looking-at "^    ")
-        (replace-match "")))))
 
 ;; some project prefer tab, so be it
 ;; @see http://stackoverflow.com/questions/69934/set-4-space-indent-in-emacs-in-text-mode
@@ -422,10 +388,6 @@ grab matched string, cssize them, and insert into kill ring"
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 ;(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 ;; effective emacs item 9
-
-; Defaliases
-(defalias 'qrr 'query-replace-regexp)
-(defalias 'dw 'delete-trailing-whitespace)
 
 (setq-default regex-tool-backend 'perl)
 
@@ -1066,5 +1028,52 @@ The full path into relative path insert it as a local file link in org-mode"
 
 ;; @see http://emacs.stackexchange.com/questions/3322/python-auto-indent-problem/3338#3338
 (if (fboundp 'electric-indent-mode) (electric-indent-mode -1))
+
+;;----------------------------------------------------------------------------
+;; dp12 Configurations
+;;----------------------------------------------------------------------------
+
+;; Shift lines up and down with M-up and M-down
+(move-text-default-bindings)
+
+;; Scrolling behavior
+(setq redisplay-dont-pause t
+	  scroll-margin 1
+	  scroll-step 1
+	  scroll-conservatively 10000
+	  scroll-preserve-screen-position 1)
+
+; Comment toggle
+(defun comment-or-uncomment-region-or-line ()
+    "Comments or uncomments the region or the current line if there's no active region."
+    (interactive)
+    (let (beg end)
+        (if (region-active-p)
+            (setq beg (region-beginning) end (region-end))
+            (setq beg (line-beginning-position) end (line-end-position)))
+        (comment-or-uncomment-region beg end)
+        (next-line)))
+(global-set-key (kbd "M-;") 'comment-or-uncomment-region-or-line)
+(global-set-key (kbd "C-M-;") 'comment-dwim)
+
+; Shift-tab
+(global-set-key (kbd "<S-tab>") 'un-indent-by-removing-4-spaces)
+(global-set-key (kbd "<backtab>") 'un-indent-by-removing-4-spaces)
+(global-set-key (kbd "<M-S-i>") 'un-indent-by-removing-4-spaces)
+(defun un-indent-by-removing-4-spaces ()
+  "remove 4 spaces from beginning of of line"
+  (interactive)
+  (save-excursion
+    (save-match-data
+      (beginning-of-line)
+      ;; get rid of tabs at beginning of line
+      (when (looking-at "^\\s-+")
+        (untabify (match-beginning 0) (match-end 0)))
+      (when (looking-at "^    ")
+        (replace-match "")))))
+
+; Defaliases
+(defalias 'qrr 'query-replace-regexp)
+(defalias 'dw 'delete-trailing-whitespace)
 
 (provide 'init-misc)
