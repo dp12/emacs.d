@@ -26,21 +26,6 @@
     (if (eq major-mode 'org-mode) (message-mode))
     ))
 
-;; (evil-set-initial-state 'org-mode 'emacs)
-;; Remap org-mode meta keys for convenience
-(evil-declare-key 'normal org-mode-map
-    "gh" 'outline-up-heading
-    "gl" 'outline-next-visible-heading
-    "H" 'org-beginning-of-line ; smarter behaviour on headlines etc.
-    "L" 'org-end-of-line ; smarter behaviour on headlines etc.
-    "$" 'org-end-of-line ; smarter behaviour on headlines etc.
-    "^" 'org-beginning-of-line ; ditto
-    "-" 'org-ctrl-c-minus ; change bullet style
-    "<" 'org-metaleft ; out-dent
-    ">" 'org-metaright ; indent
-    (kbd "TAB") 'org-cycle
-    )
-
 (loop for (mode . state) in
       '(
         (minibuffer-inactive-mode . emacs)
@@ -407,6 +392,6 @@ to replace the symbol under cursor"
 ;; }}
 
 ; Evil org-mode keys
-;; (require 'evil-org)
+(require 'evil-org)
 
 (provide 'init-evil)
