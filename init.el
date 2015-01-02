@@ -131,6 +131,7 @@
 (require 'init-stripe-buffer)
 (require 'init-eim) ;;  cannot be idle-required
 (require 'init-forth)
+(require 'init-auctex)
 
 ;; color theme
 ;; (require 'color-theme)

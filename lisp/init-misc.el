@@ -1036,6 +1036,7 @@ The full path into relative path insert it as a local file link in org-mode"
 
 ;; Shift lines up and down with M-up and M-down
 (move-text-default-bindings)
+(setq blink-cursor-mode nil)
 
 ;; Scrolling behavior
 (setq redisplay-dont-pause t
