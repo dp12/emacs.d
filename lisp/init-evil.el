@@ -394,4 +394,7 @@ to replace the symbol under cursor"
 ; Evil org-mode keys
 (require 'evil-org)
 
+;; When doing evil-search, hand the word over to helm-swoop
+(define-key evil-motion-state-map (kbd "M-i") 'helm-swoop-from-evil-search)
+
 (provide 'init-evil)
