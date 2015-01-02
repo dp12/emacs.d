@@ -1,6 +1,7 @@
 ;;----------------------------------------------------------------------------
-;; Navigate window layouts with "C-c <left>" and "C-c <right>"
+;; Navigate window layouts
 ;;----------------------------------------------------------------------------
+(setq winner-dont-bind-my-keys t)
 (winner-mode 1)
 ;; copied from http://puntoblogspot.blogspot.com/2011/05/undo-layouts-in-emacs.html
 (global-set-key (kbd "C-x 4 u") 'winner-undo)
@@ -10,10 +11,10 @@
 
 ; Wind-move
 ;; (windmove-default-keybindings 'meta)
-(global-set-key (kbd "C-c m <left>") 'windmove-left)
-(global-set-key (kbd "C-c m <right>") 'windmove-right)
-(global-set-key (kbd "C-c m <down>") 'windmove-down)
-(global-set-key (kbd "C-c m <up>") 'windmove-up)
+(global-set-key (kbd "C-c <left>") 'windmove-left)
+(global-set-key (kbd "C-c <right>") 'windmove-right)
+(global-set-key (kbd "C-c <down>") 'windmove-down)
+(global-set-key (kbd "C-c <up>") 'windmove-up)
 
 ; Window swapping
 (defun swap-windows ()
