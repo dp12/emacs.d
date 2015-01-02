@@ -1,9 +1,40 @@
 (autoload 'moz-minor-mode "moz" "Mozilla Minor and Inferior Mozilla Modes" t)
 
+(defun moz-send-command (command)
+  "Send COMMAND to *MozRepl* process.
+
+If the process doesn't exist, create one."
+  (comint-send-string (inferior-moz-process) command))
+
 (defun moz-reload-browser ()
+  "Refresh current page"
   (interactive)
-  (comint-send-string (inferior-moz-process)
-                      "setTimeout(function(){content.document.location.reload(true);}, '500');"))
+  (moz-send-command
+   "setTimeout(function(){content.document.location.reload(true);}, '500');")
+  )
+
+(defun moz-page-down ()
+  "Scroll down the current window by one page."
+  (interactive)
+  (moz-send-command "content.window.scrollByPages(1);")
+  )
+
+(defun moz-page-up ()
+  "Scroll up the current window by one page."
+  (interactive)
+  (moz-send-command "content.window.scrollByPages(-1);")
+  )
+
+(defun moz-tab-close ()
+  "Close current tab"
+  (interactive)
+  (moz-send-command "content.window.close();")
+  )
+
+(global-set-key (kbd "C-c m g") 'moz-reload-browser)
+(global-set-key (kbd "C-c m n") 'moz-page-down)
+(global-set-key (kbd "C-c m p") 'moz-page-up)
+(global-set-key (kbd "C-c m k") 'moz-tab-close)
 
 (defun moz-custom-setup ()
   (message "moz-custom-setup called")
