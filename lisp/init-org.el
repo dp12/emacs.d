@@ -96,6 +96,7 @@
       (add-hook 'org-mode-hook '(lambda ()
                                   (setq evil-auto-indent nil)
                                   (soft-wrap-lines)
+                                  (setq indent-tabs-mode nil)
                                   ))))
 
 ;; Allow Firefox to open link
