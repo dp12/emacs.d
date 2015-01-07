@@ -22,6 +22,7 @@ if no files marked, always operate on current line in dired-mode
 ;; op open two new dired buffers side-by-side and give your new-found automagic power a whirl.
 ;; Now combine that with a nice window configuration stored in a register and you’ve got a pretty slick work flow.
 (setq dired-dwim-target t)
+(require 'dired+)
 
 (eval-after-load 'dired
   '(progn
@@ -34,7 +35,6 @@ if no files marked, always operate on current line in dired-mode
      (define-key dired-mode-map "/" 'diredext-exec-git-command-in-shell)
      (define-key dired-mode-map "a" 'ag)
 
-     (require 'dired+)
      (setq dired-recursive-deletes 'always)
 	 (setq dired-recursive-copies 'always)
      (define-key dired-mode-map [mouse-2] 'dired-find-file)

@@ -48,3 +48,4 @@ recentf
 places
 ido.last
 *.orig
+lisp/init-custom.el

@@ -132,6 +132,7 @@
 (require 'init-eim) ;;  cannot be idle-required
 (require 'init-forth)
 (require 'init-auctex)
+(require 'init-custom)
 
 ;; color theme
 ;; (require 'color-theme)
