@@ -1086,7 +1086,7 @@ The full path into relative path insert it as a local file link in org-mode"
 (require 'dtrt-indent)
 (dtrt-indent-mode 1)
 
-;;
+;; Autoload intel-hex mode when needed
 (autoload 'intel-hex-mode "intel-hex-mode" "Intel Hex Mode." t)
 
 ; Defaliases

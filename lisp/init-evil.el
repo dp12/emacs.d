@@ -10,8 +10,6 @@
 (require 'evil-surround)
 (global-evil-surround-mode 1)
 
-;; Reclaim C-r for reverse i-search
-(define-key evil-normal-state-map "\C-r" 'isearch-backward-regexp)
 ;; Uncomment to reenable subsitute on visual selection
 ;; (evil-define-key 'visual evil-surround-mode-map "s" 'evil-substitute)
 ;; }}
@@ -78,6 +76,10 @@
 (define-key evil-normal-state-map "go" 'goto-char)
 ;; Override evil-repeat-pop-next to get back our tag-finding!
 (define-key evil-normal-state-map (kbd "M-.") 'ggtags-find-tag-dwim)
+;; Disable universal-argument in favor of PgUp, PgDn
+(define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
+;; Reclaim C-r for reverse i-search
+(define-key evil-normal-state-map "\C-r" 'isearch-backward-regexp)
 
 ;; {{ evil-matchit
 (require 'evil-matchit)
