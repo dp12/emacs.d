@@ -332,6 +332,7 @@ to replace the symbol under cursor"
   "xh" 'mark-whole-buffer
   "xk" 'ido-kill-buffer
   "xs" 'save-buffer
+  "fo" 'other-frame
   "xz" 'suspend-frame
   "xvv" 'vc-next-action
   "xva" 'git-add-current-file

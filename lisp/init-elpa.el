@@ -279,6 +279,7 @@ ARCHIVE is the string name of the package archive.")
 (require-package 'projectile)
 (require-package 'smart-mode-line)
 (require-package 'ws-butler)
+;; (require-package 'clean-aindent-mode)
 ;; (require-package 'helm-swoop)
 ;; (require-package 'command-frequency)
 

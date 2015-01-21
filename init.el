@@ -132,6 +132,7 @@
 (require 'init-eim) ;;  cannot be idle-required
 (require 'init-forth)
 (require 'init-auctex)
+(require 'init-function-args)
 (require 'init-custom)
 
 ;; color theme
@@ -155,7 +156,8 @@
 							 init-registers
 							 init-deft
 							 init-projectile
-                             init-semantic))
+                             ;; init-semantic)
+      ))
 (idle-require-mode 1) ;; starts loading
 
 ;;----------------------------------------------------------------------------
@@ -180,17 +182,17 @@
  '(custom-enabled-themes (quote (tango-dark)))
  '(custom-safe-themes
    (quote
-	("3a727bdc09a7a141e58925258b6e873c65ccf393b2240c51553098ca93957723" "6a37be365d1d95fad2f4d185e51928c789ef7a4ccf17e7ca13ad63a8bf5b922f" "756597b162f1be60a12dbd52bab71d40d6a2845a3e3c2584c6573ee9c332a66e" default)))
+    ("3a727bdc09a7a141e58925258b6e873c65ccf393b2240c51553098ca93957723" "6a37be365d1d95fad2f4d185e51928c789ef7a4ccf17e7ca13ad63a8bf5b922f" "756597b162f1be60a12dbd52bab71d40d6a2845a3e3c2584c6573ee9c332a66e" default)))
  '(diredp-hide-details-initially-flag nil)
  '(display-time-mode t)
  '(safe-local-variable-values
    (quote
-	((emacs-lisp-docstring-fill-column . 75)
-	 (ruby-compilation-executable . "ruby")
-	 (ruby-compilation-executable . "ruby1.8")
-	 (ruby-compilation-executable . "ruby1.9")
-	 (ruby-compilation-executable . "rbx")
-	 (ruby-compilation-executable . "jruby"))))
+    ((emacs-lisp-docstring-fill-column . 75)
+     (ruby-compilation-executable . "ruby")
+     (ruby-compilation-executable . "ruby1.8")
+     (ruby-compilation-executable . "ruby1.9")
+     (ruby-compilation-executable . "rbx")
+     (ruby-compilation-executable . "jruby"))))
  '(session-use-package t nil (session))
  '(tool-bar-mode nil))
 (custom-set-faces

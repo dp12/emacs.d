@@ -12,7 +12,7 @@
  ediff-window-setup-function 'ediff-setup-windows-plain
  grep-highlight-matches t
  grep-scroll-output t
- indent-tabs-mode t
+ indent-tabs-mode nil
  line-spacing 0.2
  mouse-yank-at-point t
  set-mark-command-repeat-pop t
@@ -1073,6 +1073,21 @@ The full path into relative path insert it as a local file link in org-mode"
         (untabify (match-beginning 0) (match-end 0)))
       (when (looking-at "^    ")
         (replace-match "")))))
+
+; Get Unix find
+;; (if (eq system-type 'windows-nt)
+	;; (setq exec-path (append exec-path
+							;; '("C:/Program Files (x86)/Git/bin"))))
+;; (setq find-program "C:/Program Files (x86)/Git/bin/find.exe")
+;; (setq find-program "C:\\bin\\find.exe")
+;; (setq find-program "C:\\cygwin\\bin\\find.exe")
+
+;; Auto-detect indent settings
+(require 'dtrt-indent)
+(dtrt-indent-mode 1)
+
+;;
+(autoload 'intel-hex-mode "intel-hex-mode" "Intel Hex Mode." t)
 
 ; Defaliases
 (defalias 'qrr 'query-replace-regexp)
