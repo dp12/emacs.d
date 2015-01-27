@@ -44,7 +44,7 @@
         (shell-mode . emacs)
         ;;(message-mode . emacs)
         (magit-log-edit-mode . insert)
-        (fundamental-mode . insert)
+        (fundamental-mode . normal)
         (weibo-timeline-mode . emacs)
         (weibo-post-mode . emacs)
         (sr-mode . emacs)
