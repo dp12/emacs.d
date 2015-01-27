@@ -143,7 +143,13 @@
 (require 'init-misc)
 
 (setq idle-require-idle-delay 3)
-(setq idle-require-symbols '(init-writting
+(setq idle-require-symbols '(
+							 init-key-chord
+							 init-registers
+							 init-deft
+							 init-projectile
+                             ;; init-semantic
+                             init-writting
                              init-lisp
                              init-keyfreq
                              init-elnode
@@ -152,12 +158,7 @@
                              ;; init-emacspeak
                              ;; init-artbollocks-mode
                              ;; init-emacs-w3m
-							 init-key-chord
-							 init-registers
-							 init-deft
-							 init-projectile
-                             ;; init-semantic)
-      ))
+                             ))
 (idle-require-mode 1) ;; starts loading
 
 ;;----------------------------------------------------------------------------

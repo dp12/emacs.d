@@ -397,8 +397,9 @@ to replace the symbol under cursor"
 
 ; Evil org-mode keys
 (require 'evil-org)
+(define-key evil-org-mode-map (kbd "M-l") 'endless/downcase)
 
-;; When doing evil-search, hand the word over to helm-swoop
+;; when doing evil-search, hand the word over to helm-swoop
 (define-key evil-motion-state-map (kbd "M-i") 'helm-swoop-from-evil-search)
 
 (provide 'init-evil)

@@ -105,6 +105,9 @@
 			  (require 'ws-butler)
 			  (ws-butler-mode 1)
 
+              ;; Company tab-completion
+              (define-key c-mode-base-map  [(tab)] 'company-complete)
+              (define-key c++-mode-map  [(tab)] 'company-complete)
               ;; gtags (GNU global) stuff
               (setq gtags-suggested-key-mapping t)
 			  (modify-syntax-entry ?_ "w")
