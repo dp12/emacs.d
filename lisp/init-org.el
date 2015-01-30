@@ -49,8 +49,8 @@
 
 
 (setq org-todo-keywords
-      (quote ((sequence "TODO(t)" "STARTED(s)" "|" "DONE(d!/!)")
-              (sequence "WAITING(w@/!)" "SOMEDAY(S)" "PROJECT(P@)" "|" "CANCELLED(c@/!)"))))
+      (quote ((sequence "TODO(t)" "PENDING(p)" "|" "DONE(d!/!)")
+              (sequence "WAITING(w@/!)" "MAYBE(M)" "PROJECT(P@)" "|" "CANCELLED(c@/!)"))))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
