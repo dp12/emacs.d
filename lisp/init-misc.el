@@ -1089,6 +1089,9 @@ The full path into relative path insert it as a local file link in org-mode"
 ;; Autoload intel-hex mode when needed
 (autoload 'intel-hex-mode "intel-hex-mode" "Intel Hex Mode." t)
 
+;; Minibuffer cycle completion
+(require 'minibuffer-complete-cycle)
+
 ; Defaliases
 (defalias 'qrr 'query-replace-regexp)
 (defalias 'dw 'delete-trailing-whitespace)

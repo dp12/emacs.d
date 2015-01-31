@@ -28,7 +28,7 @@
                                  (add-to-list 'w3m-search-engine-alist '("s" "http://code.ohloh.net/search?s=%s&browser=Default"  utf-8))
                                  (add-to-list 'w3m-search-engine-alist '("b" "http://blogsearch.google.com.au/blogsearch?q=%s" utf-8))
                                  (add-to-list 'w3m-search-engine-alist '("w" "http://en.wikipedia.org/wiki/Special:Search?search=%s" utf-8))
-                                 (add-to-list 'w3m-search-engine-alist '("d" "http://dictionary.reference.com/search?q=%s" utf-8))
+                                 (add-to-list 'w3m-search-engine-alist '("d" "https://duckduckgo.com/?q=%s" utf-8))
                                  (add-to-list 'w3m-search-engine-alist '("j" "http://www.google.com.au/search?ie=UTF-8&oe=UTF-8&sourceid=navclient&btnI=1&q=%s+site:developer.mozilla.org" utf-8))
                                  ))
 
@@ -48,7 +48,7 @@
        (*is-a-mac* "open")
        (*linux* (executable-find "firefox"))
        ))
-(setq browse-url-browser-function 'browse-url-generic)
+;; (setq browse-url-browser-function 'browse-url-generic)
 
 ;; use external browser to search programming stuff
 (defun w3mext-hacker-search ()

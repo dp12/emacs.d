@@ -157,7 +157,7 @@
                              ;; init-pomodoro
                              ;; init-emacspeak
                              ;; init-artbollocks-mode
-                             ;; init-emacs-w3m
+                             init-emacs-w3m
                              ))
 (idle-require-mode 1) ;; starts loading
 
