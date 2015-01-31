@@ -52,8 +52,6 @@
   "Enable paredit during lisp-related minibuffer commands."
   (if (memq this-command paredit-minibuffer-commands)
       (enable-paredit-mode)))
-(require 'paredit-everywhere)
-(add-hook 'prog-mode-hook 'paredit-everywhere-mode)
 
 ;; ----------------------------------------------------------------------------
 ;; Hippie-expand
