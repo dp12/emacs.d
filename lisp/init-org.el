@@ -25,7 +25,7 @@
         (t (error "Please select a region to narrow to"))))
 
 ;; Various preferences
-(setq org-log-done t
+(setq org-log-done nil
       org-completion-use-ido t
       org-edit-src-content-indentation 0
       org-edit-timestamp-down-means-later t
