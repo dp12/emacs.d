@@ -183,7 +183,7 @@
  '(custom-enabled-themes (quote (tango-dark)))
  '(custom-safe-themes
    (quote
-    ("3a727bdc09a7a141e58925258b6e873c65ccf393b2240c51553098ca93957723" "6a37be365d1d95fad2f4d185e51928c789ef7a4ccf17e7ca13ad63a8bf5b922f" "756597b162f1be60a12dbd52bab71d40d6a2845a3e3c2584c6573ee9c332a66e" default)))
+    ("2b4a4d1155e279aadd8ebcabf4b0eb8f9bb64ebbd9141fcf61c7655276b587b8" "c5a044ba03d43a725bd79700087dea813abcb6beb6be08c7eb3303ed90782482" "3a727bdc09a7a141e58925258b6e873c65ccf393b2240c51553098ca93957723" "6a37be365d1d95fad2f4d185e51928c789ef7a4ccf17e7ca13ad63a8bf5b922f" "756597b162f1be60a12dbd52bab71d40d6a2845a3e3c2584c6573ee9c332a66e" default)))
  '(diredp-hide-details-initially-flag nil)
  '(display-time-mode t)
  '(safe-local-variable-values
@@ -214,3 +214,8 @@
 ;;; End:
 (put 'erase-buffer 'disabled nil)
 (put 'dired-find-alternate-file 'disabled nil)
+;; (add-to-list 'load-path "~/.emacs.d/elpa/smart-mode-line-2.8")
+;; (add-to-list 'load-path "~/.emacs.d/elpa/smart-mode-line-powerline-theme-2.8")
+;; (require 'smart-mode-line)
+;; (sml/setup)
+;; (sml/apply-theme 'respectful)
