@@ -793,6 +793,14 @@ buffer is not visiting a file."
 (autoload 'ack-find-file "full-ack" nil t)
 ;; }}
 
+;; ag silver-searcher
+(eval-after-load 'ag
+  '(progn
+     (define-key ag-mode-map (kbd "k") 'evil-previous-line)
+     (define-key ag-mode-map (kbd "g g") 'evil-goto-first-line)
+     (define-key ag-mode-map (kbd "G") 'evil-goto-line)
+     ))
+
 ;; {{ show email sent by `git send-email' in gnus
 (eval-after-load 'gnus
     '(progn
