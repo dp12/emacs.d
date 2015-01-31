@@ -48,7 +48,7 @@
         (weibo-timeline-mode . emacs)
         (weibo-post-mode . emacs)
         (sr-mode . emacs)
-        (dired-mode . emacs)
+        (dired-mode . normal)
         (compilation-mode . emacs)
         (speedbar-mode . emacs)
         (magit-commit-mode . normal)
