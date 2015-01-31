@@ -1,5 +1,12 @@
 (global-set-key (kbd "M-/") 'hippie-expand)
-(global-set-key "\C-xl" 'hippie-expand)
+
+;; Vim-like line expansion
+(defun my-expand-lines ()
+  (interactive)
+  (let ((hippie-expand-try-functions-list
+         '(try-expand-line)))
+    (call-interactively 'hippie-expand)))
+(global-set-key "\C-xl" 'my-expand-lines)
 
 ;; let hippie-expand support ctags
 ;; shamelessly copied from http://emacswiki.org/emacs/HippieExpand

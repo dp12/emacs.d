@@ -154,7 +154,7 @@
                              init-keyfreq
                              init-elnode
                              init-doxygen
-                             init-pomodoro
+                             ;; init-pomodoro
                              ;; init-emacspeak
                              ;; init-artbollocks-mode
                              ;; init-emacs-w3m
