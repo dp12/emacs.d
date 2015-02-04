@@ -3,7 +3,7 @@
 (setq interpreter-mode-alist
       (cons '("python" . python-mode) interpreter-mode-alist))
 
-(add-to-list 'auto-mode-alist '("^SConstruct$" . python-mode))
+(add-to-list 'auto-mode-alist '("SConstruct" . python-mode))
 
 ;;----------------------------------------------------------------------------
 ; On-the-fly syntax checking via flymake

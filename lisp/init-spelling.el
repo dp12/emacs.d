@@ -95,7 +95,7 @@
                 clojure-mode-hook
                 ruby-mode-hook
                 yaml-mode
-                python-mode-hook
+                ;; python-mode-hook
                 shell-mode-hook
                 php-mode-hook
                 css-mode-hook
