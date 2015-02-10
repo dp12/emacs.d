@@ -1102,7 +1102,8 @@ The full path into relative path insert it as a local file link in org-mode"
 
 ; Defaliases
 (defalias 'qrr 'query-replace-regexp)
-(defalias 'dw 'delete-trailing-whitespace)
-(defalias 'tts 'toggle-indent-tab)
+(defalias 'dtw 'delete-trailing-whitespace)
+(defalias 'tit 'toggle-indent-tab)
+(defalias 'xtm 'xterm-mouse-mode)
 
 (provide 'init-misc)

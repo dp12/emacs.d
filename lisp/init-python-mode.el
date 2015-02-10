@@ -3,9 +3,10 @@
 (setq interpreter-mode-alist
       (cons '("python" . python-mode) interpreter-mode-alist))
 
+(add-to-list 'auto-mode-alist '("SConstruct" . python-mode))
 
 ;;----------------------------------------------------------------------------
-;; On-the-fly syntax checking via flymake
+; On-the-fly syntax checking via flymake
 ;;----------------------------------------------------------------------------
 (eval-after-load 'python
   '(require 'flymake-python-pyflakes))

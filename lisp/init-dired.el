@@ -42,8 +42,6 @@ if no files marked, always operate on current line in dired-mode
      (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file)
      (define-key dired-mode-map (kbd "^") (lambda () (interactive) (find-alternate-file "..")))
      (define-key dired-mode-map "c" 'dired-create-directory)
-     (define-key dired-mode-map "n" 'evil-search-next)
-     (define-key dired-mode-map "N" 'evil-search-previous)
      (define-key dired-mode-map "q" 'kill-this-buffer)
      (setq dired-recursive-deletes 'always)
 	 (setq dired-recursive-copies 'always)
