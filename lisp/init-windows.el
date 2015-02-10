@@ -19,16 +19,15 @@ allowing you to repeat those functions as needed."
           (funcall func arg))
         (set-transient-map keymap t))))
 
-(global-set-key (kbd "M-p") 'ace-window)
-(global-set-key (kbd "M-P")
+(global-set-key (kbd "C-c w")
       (def-rep-command
        '(nil
          ("h" . windmove-left)
          ("l" . windmove-right)
          ("j" . windmove-down)
          ("k" . windmove-up)
-         ("y" . other-window)
-         ("o" . ace-window)
+         ("w" . other-window)
+         ("a" . ace-window)
          ("s" . (lambda () (interactive) (ace-window 4)))
          ("d" . (lambda () (interactive) (ace-window 16)))
          )))
@@ -47,28 +46,6 @@ allowing you to repeat those functions as needed."
 (global-set-key (kbd "C-c <right>") 'windmove-right)
 (global-set-key (kbd "C-c <down>") 'windmove-down)
 (global-set-key (kbd "C-c <up>") 'windmove-up)
-
-; Window swapping
-(defun swap-windows ()
-  "if you have 2 windows, it swaps them."
-  (interactive)
-  (cond ((not (= (count-windows) 2))
-		 (message "you need exactly 2 windows to do this."))
-		(t
-		 (let* ((w1 (first (window-list)))
-			    (w2 (second (window-list)))
-				(b1 (window-buffer w1))
-				(b2 (window-buffer w2))
-				(s1 (window-start w1))
-				(s2 (window-start w1)))
-		   (set-window-buffer w1 b2)
-		   (set-window-buffer w2 b1)
-		   (set-window-start w1 s2)
-		   (set-window-start w2 s1)
-		   (if (eq (selected-window) w1)
-			   (select-window w2)
-			 (select-window w1))))))
-(global-set-key (kbd "C-c w") 'swap-windows)
 
 ;;----------------------------------------------------------------------------
 ;; When splitting window, show (other-buffer) in the new window
