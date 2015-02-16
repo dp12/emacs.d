@@ -59,6 +59,7 @@
 
 (require 'idle-require)
 
+;; Something after elpa causes modeline crash
 (require 'init-elpa)
 (require 'init-exec-path) ;; Set up $PATH
 ;; (require 'init-smart-mode-line)
@@ -67,11 +68,11 @@
 ;; actually, I don't know which major-mode use flyspell.
 (require 'init-spelling)
 (require 'init-xterm)
-(require 'init-osx-keys)
+;; (require 'init-osx-keys)
 (require 'init-gui-frames)
 (require 'init-ido)
-(require 'init-maxframe)
-(require 'init-proxies)
+;; (require 'init-maxframe)
+;; (require 'init-proxies)
 (require 'init-dired)
 (require 'init-isearch)
 (require 'init-uniquify)
@@ -89,13 +90,13 @@
 (require 'init-textile)
 (require 'init-markdown)
 (require 'init-csv)
-(require 'init-erlang)
+;; (require 'init-erlang)
 (require 'init-javascript)
 (when *emacs24*
   (require 'init-org)
   (require 'init-org-mime))
 (require 'init-css)
-(require 'init-haml)
+;; (require 'init-haml)
 (require 'init-python-mode)
 (require 'init-haskell)
 (require 'init-ruby-mode)
@@ -106,7 +107,7 @@
 (require 'init-cc-mode)
 (require 'init-gud)
 (require 'init-cmake-mode)
-(require 'init-csharp-mode)
+;; (require 'init-csharp-mode)
 (require 'init-linum-mode)
 (require 'init-which-func)
 (require 'init-move-window-buffer)
@@ -118,16 +119,16 @@
 (require 'init-sh)
 (require 'init-ctags)
 (require 'init-ace-jump-mode)
-(require 'init-bbdb)
-(require 'init-gnus)
+;; (require 'init-bbdb)
+;; (require 'init-gnus)
 (require 'init-lua-mode)
-(require 'init-workgroups2)
+;; (require 'init-workgroups2)
 (require 'init-term-mode)
 (require 'init-web-mode)
 (require 'init-sr-speedbar)
 (require 'init-slime)
-(when *emacs24* (require 'init-company)
-	  (require 'init-ggtags))
+(when *emacs24*
+  (require 'init-company))
 (require 'init-stripe-buffer)
 (require 'init-eim) ;;  cannot be idle-required
 (require 'init-forth)
@@ -176,8 +177,13 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ace-isearch-input-idle-delay 0.3)
+ '(ace-isearch-input-length 7)
+ '(ace-isearch-submode (quote ace-jump-char-mode))
+ '(ace-isearch-use-ace-jump (quote printing-char))
  '(ansi-color-names-vector
    ["#212526" "#ff4b4b" "#b4fa70" "#fce94f" "#729fcf" "#ad7fa8" "#8cc4ff" "#eeeeec"])
+ '(blink-cursor-mode nil)
  '(bmkp-last-as-first-bookmark-file "~/.emacs.d/.bookmarks.el")
  '(column-number-mode t)
  '(custom-enabled-themes (quote (tango-dark)))
@@ -201,7 +207,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "DejaVu Sans Mono" :foundry "outline" :slant normal :weight normal :height 113 :width normal))))
+ '(default ((t (:family "DejaVu Sans Mono" :foundry "unknown" :slant normal :weight normal :height 105 :width normal))))
  '(diredp-dir-heading ((t (:background "#00003F3F3434" :foreground "magenta"))))
  '(diredp-exec-priv ((t (:background "blue" :foreground "black"))))
  '(diredp-read-priv ((t (:background "gold" :foreground "black"))))
@@ -214,8 +220,3 @@
 ;;; End:
 (put 'erase-buffer 'disabled nil)
 (put 'dired-find-alternate-file 'disabled nil)
-;; (add-to-list 'load-path "~/.emacs.d/elpa/smart-mode-line-2.8")
-;; (add-to-list 'load-path "~/.emacs.d/elpa/smart-mode-line-powerline-theme-2.8")
-;; (require 'smart-mode-line)
-;; (sml/setup)
-;; (sml/apply-theme 'respectful)

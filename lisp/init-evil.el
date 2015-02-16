@@ -196,9 +196,10 @@ to replace the symbol under cursor"
   "cb" 'evilcvn-change-symbol-in-whole-buffer
   "tt" 'ido-goto-symbol ;; same as my vim hotkey
   "ht" 'helm-etags-select
-  "hg" 'helm-gtags-dwim
-  "rh" 'helm-gtags-find-rtag
-  "dh" 'helm-gtags-find-tag
+  "hgd" 'helm-gtags-dwim
+  "hgs" 'helm-gtags-select
+  "hgr" 'helm-gtags-find-rtag
+  "hgt" 'helm-gtags-find-tag
   "hb" 'helm-bookmarks
   "cg" 'helm-ls-git-ls
   "ud" '(lambda ()(interactive) (gud-gdb (concat "gdb --fullname \"" (cppcm-get-exe-path-current-buffer) "\"")))
@@ -279,7 +280,6 @@ to replace the symbol under cursor"
   "hsa" 'hs-toggle-fold-all
   "hsh" 'hs-hide-block
   "hss" 'hs-show-block
-  "hs" 'helm-swoop
   "hd" 'describe-function
   "hf" 'find-function
   "hv" 'describe-variable

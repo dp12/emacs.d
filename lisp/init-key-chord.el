@@ -9,6 +9,7 @@
 (key-chord-define-global "qr" 'query-replace)
 (key-chord-define-global "BB" 'ido-switch-buffer)
 (key-chord-define-global "VV" 'other-window)
+(key-chord-define-global "WW" 'other-window)
 
 ; Helm
 (key-chord-define-global "HH" 'helm-mini)

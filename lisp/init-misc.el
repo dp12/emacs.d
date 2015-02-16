@@ -19,8 +19,8 @@
  tooltip-delay 1.5
  truncate-lines nil
  truncate-partial-width-windows nil
- ;; no annoying beep on errors
- visible-bell t)
+ ;; no visual or audible bell
+ ring-bell-function 'ignore)
 
 (global-auto-revert-mode)
 (setq global-auto-revert-non-file-buffers t
