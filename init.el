@@ -35,7 +35,7 @@
 ;----------------------------------------------------------------------------
 ; Load configs for specific features and modes
 ;----------------------------------------------------------------------------
-(require 'init-modeline)
+
 
 ;;----------------------------------------------------------------------------
 ;; Load configs for specific features and modes
@@ -61,8 +61,8 @@
 
 ;; Something after elpa causes modeline crash
 (require 'init-elpa)
+(require 'init-modeline)
 (require 'init-exec-path) ;; Set up $PATH
-;; (require 'init-smart-mode-line)
 (require 'init-frame-hooks)
 ;; any file use flyspell should be initialized after init-spelling.el
 ;; actually, I don't know which major-mode use flyspell.
@@ -131,24 +131,20 @@
   (require 'init-company))
 (require 'init-stripe-buffer)
 (require 'init-eim) ;;  cannot be idle-required
+(require 'init-key-chord)
 (require 'init-forth)
 (require 'init-auctex)
 (require 'init-function-args)
 (require 'init-custom)
 
-;; color theme
-;; (require 'color-theme)
-;; (require 'color-theme-molokai)
-;; (color-theme-molokai)
 ;; misc has some crucial tools I need immediately
 (require 'init-misc)
 
 (setq idle-require-idle-delay 3)
 (setq idle-require-symbols '(
-							 init-key-chord
-							 init-registers
-							 init-deft
-							 init-projectile
+                             init-registers
+                             init-deft
+                             init-projectile
                              ;; init-semantic
                              init-writting
                              init-lisp
@@ -214,6 +210,7 @@
  '(diredp-write-priv ((t (:background "lime green" :foreground "black"))))
  '(hl-line ((t (:underline "green" :weight normal))) t)
  '(org-todo ((t (:foreground "red" :weight bold))))
+ '(powerline-active3 ((t (:inherit mode-line :background "OliveDrab3" :foreground "black"))))
  '(window-numbering-face ((t (:foreground "DeepPink" :underline "DeepPink" :weight bold))) t))
 ;;; Local Variables:
 ;;; no-byte-compile: t

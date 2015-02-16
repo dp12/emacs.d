@@ -4,10 +4,8 @@
 ;; use setq-default to set it for /all/ modes
 
 (add-to-list 'load-path "~/.emacs.d/site-lisp/powerline")
-;; (add-to-list 'load-path "~/.emacs.d/elpa/smart-mode-line-2.8")
-;;(add-to-list 'load-path "~/.emacs.d/elpa/smart-mode-line-powerline-theme-2.8")
 (require 'powerline)
-
+(powerline-evil-theme)
 
 ;; (setq-default mode-line-format
 ;;   (list
