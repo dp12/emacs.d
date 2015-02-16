@@ -1117,7 +1117,7 @@ The full path into relative path insert it as a local file link in org-mode"
 (with-eval-after-load 'git-gutter (diminish 'git-gutter-mode))
 (with-eval-after-load 'magit (diminish 'magit-auto-revert-mode))
 (with-eval-after-load 'hs-minor-mode (diminish 'hs-minor-mode))
-(with-eval-after-load 'helm-gtags-mode (diminish 'helm-gtags-mode "H-G"))
+;; (eval-after-load "helm-gtags" (diminish 'helm-gtags-mode "H-G"))
 
 ; Defaliases
 (defalias 'qrr 'query-replace-regexp)

@@ -211,6 +211,15 @@
  '(hl-line ((t (:underline "green" :weight normal))) t)
  '(org-todo ((t (:foreground "red" :weight bold))))
  '(powerline-active3 ((t (:inherit mode-line :background "OliveDrab3" :foreground "black"))))
+ '(powerline-evil-emacs-face ((t (:inherit mode-line :background "blue violet" :foreground "black" :weight bold))))
+ '(powerline-evil-iedit-face ((t (:inherit mode-line :background "firebrick" :foreground "black" :weight bold))))
+ '(powerline-evil-iedit-insert-face ((t (:inherit mode-line :background "#0F9" :foreground "black" :weight bold))))
+ '(powerline-evil-insert-face ((t (:inherit mode-line :background "green" :foreground "black" :weight bold))))
+ '(powerline-evil-motion-face ((t (:inherit mode-line :background "blue" :foreground "black" :weight bold))))
+ '(powerline-evil-normal-face ((t (:inherit mode-line :background "red" :foreground "black" :weight bold))))
+ '(powerline-evil-operator-face ((t (:inherit mode-line :background "sky blue" :foreground "black" :weight bold))))
+ '(powerline-evil-replace-face ((t (:inherit mode-line :background "black" :foreground "black" :weight bold))))
+ '(powerline-evil-visual-face ((t (:inherit mode-line :background "orange" :foreground "black" :weight bold))))
  '(window-numbering-face ((t (:foreground "DeepPink" :underline "DeepPink" :weight bold))) t))
 ;;; Local Variables:
 ;;; no-byte-compile: t
