@@ -79,7 +79,7 @@ search module is used."
   (let ((evil-search-prompt (evil-search-prompt forward))
         (isearch-search-fun-function 'evil-isearch-function)
         (point (point))
-        isearch-success search-nonincremental-instead)
+        search-nonincremental-instead)
     (setq isearch-forward forward)
     (evil-save-echo-area
       (evil-without-input-method-hooks
@@ -91,9 +91,11 @@ search module is used."
          (isearch-backward regexp-p))
        (evil-push-search-history isearch-string forward)
        (setq current-input-method nil))
-      (if (not isearch-success)
-          (goto-char point)
-        ;; always position point at the beginning of the match
+      (when (/= (point) point)
+        ;; position the point at beginning of the match only if the call to
+        ;; `isearch' has really moved the point. `isearch' doesn't move the
+        ;; point only if "C-g" is hit twice to exit the search, in which case we
+        ;; shouldn't move the point either.
         (when (and forward isearch-other-end)
           (goto-char isearch-other-end))
         (when (and (eq point (point))
@@ -227,14 +229,14 @@ one more than the current position."
       (set-text-properties 0 (length string) nil string)
       ;; position to search from
       (goto-char start)
+      (setq isearch-string string)
+      (isearch-update-ring string regexp-p)
       (condition-case nil
           (funcall search-func string)
         (search-failed
          (goto-char orig)
-         (error "\"%s\": %s not found"
-                string (if regexp-p "pattern" "string"))))
-      (setq isearch-string string)
-      (isearch-update-ring string regexp-p)
+         (user-error "\"%s\": %s not found"
+                     string (if regexp-p "pattern" "string"))))
       ;; handle opening and closing of invisible area
       (cond
        ((boundp 'isearch-filter-predicates)
@@ -271,10 +273,10 @@ otherwise for the word at point."
            (not (string= string "")))
       (evil-search string forward t))
      (t
-      (setq string (evil-find-thing forward (if symbol 'symbol 'word)))
+      (setq string (evil-find-thing forward (if symbol 'symbol 'evil-word)))
       (cond
        ((null string)
-        (error "No word under point"))
+        (user-error "No word under point"))
        (unbounded
         (setq string (regexp-quote string)))
        (t
@@ -667,7 +669,7 @@ The following properties are supported:
               (search-failed
                (setq result (nth 2 lossage)))
 
-              (error
+              (user-error
                (setq result (format "%s" lossage)))))
         ;; no pattern, remove all highlights
         (mapc #'delete-overlay old-ovs)
@@ -1022,7 +1024,7 @@ current search result."
             (string-match
              "^\\([esb]\\)?\\(\\([-+]\\)?\\([0-9]*\\)\\)$"
              offset)
-          (error "Invalid search offset: %s" offset))
+          (user-error "Invalid search offset: %s" offset))
         (let ((count (if (= (match-beginning 4) (match-end 4))
                          (cond
                           ((not (match-beginning 3)) 0)
@@ -1098,7 +1100,7 @@ point."
   (let ((string (evil-find-thing (eq direction 'forward)
                                  (if symbol 'symbol 'word))))
     (if (null string)
-        (error "No word under point")
+        (user-error "No word under point")
       (let ((regex (if unbounded
                        (regexp-quote string)
                      (format (if symbol "\\_<%s\\_>" "\\<%s\\>")
@@ -1160,7 +1162,7 @@ This handler highlights the pattern of the current substitution."
           (end-of-file
            (evil-ex-pattern-update-ex-info nil
                                            "incomplete replacement"))
-          (error
+          (user-error
            (evil-ex-pattern-update-ex-info nil
                                            (format "%s" lossage))))))))
 
@@ -1232,11 +1234,15 @@ a :substitute command with arguments."
     ;; the r flag
     (when (zerop (length pattern))
       (setq pattern
-            (if (and evil-ex-last-was-search (memq ?r flags))
-                (and evil-ex-search-pattern
-                     (evil-ex-pattern-regex evil-ex-search-pattern))
-              (and evil-ex-substitute-pattern
-                   (evil-ex-pattern-regex evil-ex-substitute-pattern)))
+            (if (eq evil-search-module 'evil-search)
+                (if (and evil-ex-last-was-search (memq ?r flags))
+                    (and evil-ex-search-pattern
+                         (evil-ex-pattern-regex evil-ex-search-pattern))
+                  (and evil-ex-substitute-pattern
+                       (evil-ex-pattern-regex evil-ex-substitute-pattern)))
+              (if (eq case-fold-search t)
+                  isearch-string
+                (concat isearch-string "\\C")))
             flags (remq ?r flags)))
     ;; generate pattern
     (when pattern

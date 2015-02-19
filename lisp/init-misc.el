@@ -130,6 +130,7 @@
              (if *emacs24* (electric-pair-mode 1))
              ;; eldoc, show API doc in minibuffer echo area
              (turn-on-eldoc-mode)
+             (rainbow-delimiters-mode)
              ;; show trailing spaces in a programming mod
              (setq show-trailing-whitespace t)))
 
@@ -1090,6 +1091,22 @@ The full path into relative path insert it as a local file link in org-mode"
 ;; (setq find-program "C:\\bin\\find.exe")
 ;; (setq find-program "C:\\cygwin\\bin\\find.exe")
 
+;; Smartrep
+;; (require 'smartrep)
+;; (smartrep-define-key global-map "C-x"
+;;   '(("l" . 'my-expand-lines)
+;;     ("k" . '(lambda () (interactive) (kill-buffer (window-buffer))))    ("0" . 'delete-window)))
+
+;; Guide-key
+(require 'guide-key)
+(diminish 'guide-key-mode)
+(setq guide-key/guide-key-sequence '("C-x r" "C-x 4" "C-x 5"))
+(guide-key-mode 1)
+
+;; Anchored Transpose
+(autoload 'anchored-transpose "anchored-transpose" nil t)
+(global-set-key (kbd "C-x t") 'anchored-transpose)
+
 ;; Auto-detect indent settings
 (require 'dtrt-indent)
 (dtrt-indent-mode 1)
@@ -1117,6 +1134,7 @@ The full path into relative path insert it as a local file link in org-mode"
 (with-eval-after-load 'git-gutter (diminish 'git-gutter-mode))
 (with-eval-after-load 'magit (diminish 'magit-auto-revert-mode))
 (with-eval-after-load 'hs-minor-mode (diminish 'hs-minor-mode))
+(diminish 'abbrev-mode)
 ;; (eval-after-load "helm-gtags" (diminish 'helm-gtags-mode "H-G"))
 
 ; Defaliases

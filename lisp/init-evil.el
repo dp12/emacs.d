@@ -270,6 +270,7 @@ to replace the symbol under cursor"
   "rnl" 'rinari-find-log
   "rno" 'rinari-console
   "rnt" 'rinari-find-test
+  "rbf" 'revert-buffer
   "rbd" 'robe-doc
   "rbj" 'robe-jump
   "rbr" 'robe-rails-refresh
@@ -405,4 +406,6 @@ to replace the symbol under cursor"
 ;; when doing evil-search, hand the word over to helm-swoop
 (define-key evil-motion-state-map (kbd "M-i") 'helm-swoop-from-evil-search)
 
+(evil-define-key 'motion visual-line-mode-map "$" 'evil-end-of-visual-line 
+                                              "^" 'evil-beginning-of-visual-line)
 (provide 'init-evil)

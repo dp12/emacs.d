@@ -118,6 +118,9 @@ reference other symbols, but the grammar cannot contain
 left recursion.  See `evil-parser' for a detailed explanation
 of the syntax.")
 
+(defvar evil-ex-echo-overlay nil
+  "Overlay used for displaying info messages during ex.")
+
 (defun evil-ex-p ()
   "Whether Ex is currently active."
   (and evil-ex-current-buffer t))
@@ -185,7 +188,7 @@ is appended to the line."
   (unless (zerop (length result))
     (if evil-ex-expression
         (eval evil-ex-expression)
-      (error "Ex: syntax error"))))
+      (user-error "Ex: syntax error"))))
 
 (defun evil-ex-delete-backward-char ()
   "Close the minibuffer if it is empty.
@@ -314,9 +317,24 @@ in case of incomplete or unknown commands."
       (unless (or evil-no-display
                   (zerop (length string)))
         (let ((string (format " [%s]" (apply #'format string args)))
+              (ov (or evil-ex-echo-overlay
+                      (setq evil-ex-echo-overlay (make-overlay (point-min) (point-max) nil t t))))
               after-change-functions before-change-functions)
           (put-text-property 0 (length string) 'face 'evil-ex-info string)
-          (minibuffer-message string))))))
+          ;; The following 'trick' causes point to be shown before the
+          ;; message instead behind. It is shamelessly stolen from the
+          ;; implementation of `minibuffer-message`.
+          (put-text-property 0 1 'cursor t string)
+          (move-overlay ov (point-max) (point-max))
+          (overlay-put ov 'after-string string)
+          (add-hook 'pre-command-hook #'evil--ex-remove-echo-overlay nil t))))))
+
+(defun evil--ex-remove-echo-overlay ()
+  "Remove echo overlay from ex minibuffer."
+  (when evil-ex-echo-overlay
+    (delete-overlay evil-ex-echo-overlay)
+    (setq evil-ex-echo-overlay nil))
+  (remove-hook 'pre-command-hook 'evil--ex-remove-echo-overlay t))
 
 (defun evil-ex-completion ()
   "Completes the current ex command or argument."
@@ -601,7 +619,7 @@ works accordingly."
       (if (commandp binding)
           binding
         (unless noerror
-          (error "Unknown command: `%s'" command))))))
+          (user-error "Unknown command: `%s'" command))))))
 
 (defun evil-ex-completed-binding (command &optional noerror)
   "Returns the final binding of the completion of COMMAND."
@@ -657,7 +675,7 @@ This function interprets special file names like # and %."
               (setq hist nil)
               (if evil-ex-expression
                   (eval evil-ex-expression)
-                (error "Ex: syntax error")))))))))
+                (user-error "Ex: syntax error")))))))))
 
 (defun evil-ex-call-command (range command argument)
   "Execute the given command COMMAND."
@@ -737,7 +755,7 @@ Signal an error if MARKER is in a different buffer."
   (setq marker (evil-get-marker marker))
   (if (numberp marker)
       (line-number-at-pos marker)
-    (error "Ex does not support markers in other files")))
+    (user-error "Ex does not support markers in other files")))
 
 (defun evil-ex-char-marker-range (beg end)
   (when (stringp beg) (setq beg (aref beg 0)))
@@ -750,7 +768,7 @@ Signal an error if MARKER is in a different buffer."
                    (if (evil-visual-state-p)
                        (evil-visual-type)
                      'inclusive)))
-    (error "Ex does not support markers in other files")))
+    (user-error "Ex does not support markers in other files")))
 
 (defun evil-ex-re-fwd (pattern)
   "Search forward for PATTERN.

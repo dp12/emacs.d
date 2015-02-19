@@ -220,6 +220,7 @@
  '(powerline-evil-operator-face ((t (:inherit mode-line :background "sky blue" :foreground "black" :weight bold))))
  '(powerline-evil-replace-face ((t (:inherit mode-line :background "black" :foreground "black" :weight bold))))
  '(powerline-evil-visual-face ((t (:inherit mode-line :background "orange" :foreground "black" :weight bold))))
+ '(rainbow-delimiters-depth-1-face ((t (:foreground "grey55" :weight normal))))
  '(window-numbering-face ((t (:foreground "DeepPink" :underline "DeepPink" :weight bold))) t))
 ;;; Local Variables:
 ;;; no-byte-compile: t
