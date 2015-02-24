@@ -27,6 +27,7 @@ allowing you to repeat those functions as needed."
          ("j" . windmove-down)
          ("k" . windmove-up)
          ("w" . other-window)
+         ("f" . other-frame)
          ("a" . ace-window)
          ("s" . (lambda () (interactive) (ace-window 4)))
          ("d" . (lambda () (interactive) (ace-window 16)))
