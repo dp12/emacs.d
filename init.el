@@ -125,7 +125,7 @@
 ;; (require 'init-workgroups2)
 (require 'init-term-mode)
 (require 'init-web-mode)
-(require 'init-sr-speedbar)
+;; (require 'init-sr-speedbar)
 (require 'init-slime)
 (when *emacs24*
   (require 'init-company))
@@ -135,6 +135,7 @@
 (require 'init-forth)
 (require 'init-auctex)
 (require 'init-function-args)
+(require 'init-smartparens)
 (require 'init-custom)
 
 ;; misc has some crucial tools I need immediately
@@ -203,7 +204,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "DejaVu Sans Mono" :foundry "unknown" :slant normal :weight normal :height 105 :width normal))))
+ '(default ((t (:family "Ubuntu Mono" :foundry "unknown" :slant normal :weight normal :height 128 :width normal))))
  '(diredp-dir-heading ((t (:background "#00003F3F3434" :foreground "magenta"))))
  '(diredp-exec-priv ((t (:background "blue" :foreground "black"))))
  '(diredp-read-priv ((t (:background "gold" :foreground "black"))))

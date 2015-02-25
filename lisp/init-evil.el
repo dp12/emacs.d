@@ -54,6 +54,7 @@
         (magit-commit-mode . normal)
         (magit-diff-mode . normal)
         (js2-error-buffer-mode . emacs)
+        (project-explorer-mode . emacs)
         )
       do (evil-set-initial-state mode state))
 
@@ -277,6 +278,7 @@ to replace the symbol under cursor"
   "rbs" 'robe-start
   "ws" 'w3mext-hacker-search
   "hsp" 'helm-swoop
+  "pe" 'project-explorer-toggle
   "hst" 'hs-toggle-fold
   "hsa" 'hs-toggle-fold-all
   "hsh" 'hs-hide-block

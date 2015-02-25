@@ -6,8 +6,8 @@
 ;; no auto-refresh
 (setq sr-speedbar-auto-refresh nil)
 
-(setq sr-speedbar-width-console 30)
-(setq sr-speedbar-width-x 30)
+(setq sr-speedbar-width-console 20)
+(setq sr-speedbar-width-x 20)
 
 ;; regular speedbar config
 (setq speedbar-show-unknown-files t)
