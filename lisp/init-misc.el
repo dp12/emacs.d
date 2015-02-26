@@ -1103,6 +1103,11 @@ The full path into relative path insert it as a local file link in org-mode"
 (setq guide-key/guide-key-sequence '("C-x r" "C-x 4" "C-x 5"))
 (guide-key-mode 1)
 
+;; Drag-stuff
+(require 'drag-stuff)
+(drag-stuff-global-mode t)
+(diminish 'drag-stuff-mode)
+
 ;; Anchored Transpose
 (autoload 'anchored-transpose "anchored-transpose" nil t)
 (global-set-key (kbd "C-x t") 'anchored-transpose)
