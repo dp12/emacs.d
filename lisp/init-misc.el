@@ -1103,6 +1103,10 @@ The full path into relative path insert it as a local file link in org-mode"
 (setq guide-key/guide-key-sequence '("C-x r" "C-x 4" "C-x 5"))
 (guide-key-mode 1)
 
+;; Minimap
+(require 'minimap)
+(setq minimap-window-location 'right)
+
 ;; Drag-stuff
 (require 'drag-stuff)
 (drag-stuff-global-mode t)
