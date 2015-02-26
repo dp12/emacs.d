@@ -5,7 +5,7 @@
 (setq sp-base-key-bindings 'paredit)
 (setq sp-autoskip-closing-pair 'always)
 (setq sp-hybrid-kill-entire-symbol nil)
-(sp-use-paredit-bindings)
+;; (sp-use-paredit-bindings)
 
 ;; (foo) bar -> (foo bar)
 (define-key smartparens-mode-map (kbd "<C-right>") 'sp-slurp-hybrid-sexp)
