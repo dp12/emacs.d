@@ -52,6 +52,16 @@
       (quote ((sequence "TODO(t)" "PENDING(p)" "|" "DONE(d!)")
               (sequence "WAITING(w@/!)" "MAYBE(M)" "PROJECT(P@)" "|" "CANCELLED(c@/!)"))))
 
+(setq org-todo-keyword-faces
+      '(
+        ("TODO"  . (:foreground "red" :weight bold))
+        ("WAITING"  . (:foreground "olivedrab" :weight bold))
+        ("MAYBE"  . (:foreground "chocolate" :weight bold))
+        ("PENDING"  . (:foreground "orange" :weight bold))
+        ("PROJECT"  . (:foreground "steelblue" :weight bold))
+        ("DONE"  . (:foreground "PaleGreen" :weight bold))
+        ("CANCELED"  . shadow)
+        ))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Org clock

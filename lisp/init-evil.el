@@ -79,6 +79,7 @@
 (define-key evil-normal-state-map (kbd "M-.") 'ggtags-find-tag-dwim)
 ;; Disable universal-argument in favor of PgUp, PgDn
 (define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
+(global-set-key (kbd "C-c u") 'universal-argument)
 ;; Reclaim C-r for reverse i-search
 (define-key evil-normal-state-map "\C-r" 'isearch-backward-regexp)
 
@@ -161,7 +162,7 @@ to replace the symbol under cursor"
   "al" 'evil-ace-jump-line-mode ; ,l for Ace Jump (line)
   "ac" 'evil-ace-jump-char-mode ; ,x for Ace Jump (char)
   "as" 'ack-same
-  "ac" 'ack
+  "ak" 'ack
   "aa" 'ack-find-same-file
   "af" 'ack-find-file
   "bf" 'beginning-of-defun

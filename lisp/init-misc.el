@@ -1112,6 +1112,10 @@ The full path into relative path insert it as a local file link in org-mode"
 (drag-stuff-global-mode t)
 (diminish 'drag-stuff-mode)
 
+;; Project explore
+(require 'project-explorer)
+(define-key project-explorer-mode-map (kbd "SPC") 'ace-jump-mode)
+
 ;; Anchored Transpose
 (autoload 'anchored-transpose "anchored-transpose" nil t)
 (global-set-key (kbd "C-x t") 'anchored-transpose)
@@ -1128,6 +1132,14 @@ The full path into relative path insert it as a local file link in org-mode"
 
 ;; Diminish settings
 (diminish 'visual-line-mode)
+
+;; Magit settings
+(eval-after-load 'magit
+  '(progn
+     (set-face-foreground 'magit-diff-add "green3")
+     (set-face-foreground 'magit-diff-del "red3")
+     (when (not window-system)
+       (set-face-background 'magit-item-highlight "black"))))
 
 (with-eval-after-load 'autopair (diminish 'autopair-mode))
 (with-eval-after-load 'anzu (diminish 'anzu-mode))
