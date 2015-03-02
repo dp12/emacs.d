@@ -1158,6 +1158,15 @@ The full path into relative path insert it as a local file link in org-mode"
 (diminish 'abbrev-mode)
 ;; (eval-after-load "helm-gtags" (diminish 'helm-gtags-mode "H-G"))
 
+;; Toggle Microsoft Word-like writing settings
+(defun toggle-calibri-theme()
+    (interactive)
+    (if (equal custom-enabled-themes '(tango-dark))
+        (progn (load-theme 'leuven)
+               (set-face-attribute 'default nil :font "Calibri" :height 140))
+      (progn (load-theme 'tango-dark)
+             (set-face-attribute 'default nil :font "DejaVu Sans Mono" :height 120))))
+
 ; Defaliases
 (defalias 'qrr 'query-replace-regexp)
 (defalias 'dtw 'delete-trailing-whitespace)
