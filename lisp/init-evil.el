@@ -197,6 +197,7 @@ to replace the symbol under cursor"
   "cd" 'evilcvn-change-symbol-in-defun
   "cb" 'evilcvn-change-symbol-in-whole-buffer
   "tt" 'ido-goto-symbol ;; same as my vim hotkey
+  "ha" 'helm-ag
   "ht" 'helm-etags-select
   "hgd" 'helm-gtags-dwim
   "hgs" 'helm-gtags-select

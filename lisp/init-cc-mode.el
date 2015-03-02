@@ -14,7 +14,8 @@
   (local-set-key "\M-f" 'c-forward-into-nomenclature)
   (local-set-key "\M-b" 'c-backward-into-nomenclature)
   (setq cc-search-directories '("." "/usr/include" "/usr/local/include/*" "../*/include" "$WXWIN/include"))
-  (setq c-basic-offset 4)
+  ;; Breaks dtrt-indent
+  ;; (setq c-basic-offset 4)
   (setq c-style-variables-are-local-p nil)
   ;give me NO newline automatically after electric expressions are entered
  (setq c-auto-newline nil)
@@ -76,6 +77,10 @@
   ;1 (was imposed by gnu style by default)
   (setq c-label-minimum-indentation 0)
 
+  ;; Auto-detect indent settings
+  (require 'dtrt-indent)
+  (dtrt-indent-mode t)
+
   (when buffer-file-name
     (require 'fic-mode)
     (add-hook 'c++-mode-hook 'turn-on-fic-mode)
@@ -104,7 +109,6 @@
               (fix-c-indent-offset-according-to-syntax-context 'func-decl-cont 0)
 			  (require 'ws-butler)
 			  (ws-butler-mode 1)
-
               ;; Company tab-completion
               (define-key c-mode-base-map  [(tab)] 'company-complete)
               (define-key c++-mode-map  [(tab)] 'company-complete)

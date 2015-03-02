@@ -1121,8 +1121,8 @@ The full path into relative path insert it as a local file link in org-mode"
 (global-set-key (kbd "C-x t") 'anchored-transpose)
 
 ;; Auto-detect indent settings
-(require 'dtrt-indent)
-(dtrt-indent-mode 1)
+;; (require 'dtrt-indent)
+;; (dtrt-indent-mode 1)
 
 ;; Autoload intel-hex mode when needed
 (autoload 'intel-hex-mode "intel-hex-mode" "Intel Hex Mode." t)
