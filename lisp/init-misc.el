@@ -1163,7 +1163,8 @@ The full path into relative path insert it as a local file link in org-mode"
     (interactive)
     (if (equal custom-enabled-themes '(tango-dark))
         (progn (load-theme 'leuven)
-               (set-face-attribute 'default nil :font "Calibri" :height 140))
+        ;; (progn (load-theme 'sanityinc-tomorrow-day)
+               (set-face-attribute 'default nil :font "Calibri" :height 140 :foreground "#FFFFF"))
       (progn (load-theme 'tango-dark)
              (set-face-attribute 'default nil :font "DejaVu Sans Mono" :height 120))))
 
