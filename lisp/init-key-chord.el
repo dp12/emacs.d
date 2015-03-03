@@ -13,7 +13,6 @@
 (key-chord-define-global "WW" 'other-window)
 
 ; Helm
-(key-chord-define-global "HH" 'helm-mini)
 (key-chord-define-global "HS" 'helm-swoop)
 (key-chord-define-global "HG" 'helm-do-ag)
 (key-chord-define-global "HM" 'helm-multi-swoop-all)

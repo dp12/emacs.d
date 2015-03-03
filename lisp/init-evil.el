@@ -404,6 +404,28 @@ to replace the symbol under cursor"
 (evilnc-default-hotkeys)
 ;; }}
 
+;; Do "ii" for same indentation, "ai" for same and different above
+(require 'evil-indent-textobject)
+
+;; Exchange with gx; cancel with gX
+(require 'evil-exchange)
+;; change default key bindings (if you want) HERE
+;; (setq evil-exchange-key (kbd "zx"))
+(evil-exchange-install)
+
+;; Deal with function arguments
+(require 'evil-args)
+;; bind evil-args text objects
+(define-key evil-inner-text-objects-map "a" 'evil-inner-arg)
+(define-key evil-outer-text-objects-map "a" 'evil-outer-arg)
+;; bind evil-forward/backward-args
+(define-key evil-normal-state-map "L" 'evil-forward-arg)
+(define-key evil-normal-state-map "H" 'evil-backward-arg)
+(define-key evil-motion-state-map "L" 'evil-forward-arg)
+(define-key evil-motion-state-map "H" 'evil-backward-arg)
+;; bind evil-jump-out-args
+(define-key evil-normal-state-map "K" 'evil-jump-out-args)
+
 ; Evil org-mode keys
 (require 'evil-org)
 (define-key evil-org-mode-map (kbd "M-l") 'endless/downcase)

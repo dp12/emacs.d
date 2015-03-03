@@ -1100,7 +1100,7 @@ The full path into relative path insert it as a local file link in org-mode"
 ;; Guide-key
 (require 'guide-key)
 (diminish 'guide-key-mode)
-(setq guide-key/guide-key-sequence '("C-x r" "C-x 4" "C-x 5"))
+(setq guide-key/guide-key-sequence '("C-x r" "C-x 4" "C-x 5" "C-x v"))
 (guide-key-mode 1)
 
 ;; Minimap
@@ -1119,10 +1119,6 @@ The full path into relative path insert it as a local file link in org-mode"
 ;; Anchored Transpose
 (autoload 'anchored-transpose "anchored-transpose" nil t)
 (global-set-key (kbd "C-x t") 'anchored-transpose)
-
-;; Auto-detect indent settings
-;; (require 'dtrt-indent)
-;; (dtrt-indent-mode 1)
 
 ;; Autoload intel-hex mode when needed
 (autoload 'intel-hex-mode "intel-hex-mode" "Intel Hex Mode." t)
@@ -1159,14 +1155,14 @@ The full path into relative path insert it as a local file link in org-mode"
 ;; (eval-after-load "helm-gtags" (diminish 'helm-gtags-mode "H-G"))
 
 ;; Toggle Microsoft Word-like writing settings
-(defun toggle-calibri-theme()
-    (interactive)
-    (if (equal custom-enabled-themes '(tango-dark))
-        (progn (load-theme 'leuven)
-        ;; (progn (load-theme 'sanityinc-tomorrow-day)
-               (set-face-attribute 'default nil :font "Calibri" :height 140 :foreground "#FFFFF"))
-      (progn (load-theme 'tango-dark)
-             (set-face-attribute 'default nil :font "DejaVu Sans Mono" :height 120))))
+(defun toggle-calibri-theme ()
+  (interactive)
+  (if (equal custom-enabled-themes '(tango-dark))
+      (progn (load-theme 'leuven)
+             ;; (progn (load-theme 'sanityinc-tomorrow-day)
+             (set-face-attribute 'default nil :font "Calibri" :height 140 :foreground "#FFFFF"))
+    (progn (load-theme 'tango-dark)
+           (set-face-attribute 'default nil :font "DejaVu Sans Mono" :height 120))))
 
 ; Defaliases
 (defalias 'qrr 'query-replace-regexp)
