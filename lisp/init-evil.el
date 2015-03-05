@@ -426,6 +426,9 @@ to replace the symbol under cursor"
 ;; bind evil-jump-out-args
 (define-key evil-normal-state-map "K" 'evil-jump-out-args)
 
+;; Setup iedit
+(require 'evil-iedit-state)
+
 ; Evil org-mode keys
 (require 'evil-org)
 (define-key evil-org-mode-map (kbd "M-l") 'endless/downcase)

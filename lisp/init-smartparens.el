@@ -8,7 +8,7 @@
 ;; (sp-use-paredit-bindings)
 
 ;; (foo) bar -> (foo bar)
-(define-key smartparens-mode-map (kbd "<C-right>") 'sp-slurp-hybrid-sexp)
+(define-key smartparens-mode-map (kbd "C-S-<down>") 'sp-slurp-hybrid-sexp)
 (define-key smartparens-mode-map (kbd "C-M-k") 'sp-kill-hybrid-sexp)
 (define-key smartparens-mode-map (kbd "C-M-t") 'sp-transpose-hybrid-sexp)
 (define-key smartparens-mode-map (kbd "C-M-p") 'sp-push-hybrid-sexp)
@@ -35,7 +35,7 @@
 (define-key sp-keymap (kbd "M-<delete>") 'sp-unwrap-sexp)
 (define-key sp-keymap (kbd "M-<backspace>") 'sp-backward-unwrap-sexp)
 
-;; (define-key sp-keymap (kbd "C-<right>") 'sp-forward-slurp-sexp)
+(define-key sp-keymap (kbd "C-<right>") 'sp-forward-slurp-sexp)
 (define-key sp-keymap (kbd "C-<left>") 'sp-forward-barf-sexp)
 ;; Breaks calc, so disable for now
 (define-key sp-keymap (kbd "C-S-<left>") 'sp-backward-slurp-sexp)
@@ -43,11 +43,11 @@
 
 (define-key sp-keymap (kbd "M-D") 'sp-splice-sexp)
 (define-key sp-keymap (kbd "C-S-<delete>") 'sp-splice-sexp-killing-forward)
-(define-key sp-keymap (kbd "C-M-<backspace>") 'sp-splice-sexp-killing-backward)
-(define-key sp-keymap (kbd "C-S-<backspace>") 'sp-splice-sexp-killing-around)
+(define-key sp-keymap (kbd "C-S-<backspace>") 'sp-splice-sexp-killing-backward)
+(define-key sp-keymap (kbd "C-M-<backspace>") 'sp-splice-sexp-killing-around)
 
 (define-key sp-keymap (kbd "C-]") 'sp-select-next-thing-exchange)
-(define-key sp-keymap (kbd "C-<left_bracket>") 'sp-select-previous-thing)
+(define-key sp-keymap (kbd "C-M-[") 'sp-select-previous-thing)
 (define-key sp-keymap (kbd "C-M-]") 'sp-select-next-thing)
 
 (define-key sp-keymap (kbd "M-F") 'sp-forward-symbol)
