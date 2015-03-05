@@ -36,7 +36,11 @@
        (kill-buffer)
        (jump-to-register :magit-fullscreen))
 
-     (define-key magit-status-mode-map (kbd "q") 'magit-quit-session)))
+     (define-key magit-status-mode-map (kbd "q") 'magit-quit-session)
+     (define-key magit-status-mode-map (kbd "C-o 1") 'magit-show-level-1-all)
+     (define-key magit-status-mode-map (kbd "C-o 2") 'magit-show-level-2-all)
+     (define-key magit-status-mode-map (kbd "C-o 3") 'magit-show-level-3-all)
+     (define-key magit-status-mode-map (kbd "C-o 4") 'magit-show-level-4-all)))
 
 (when *is-a-mac*
   (add-hook 'magit-mode-hook (lambda () (local-unset-key [(meta h)]))))

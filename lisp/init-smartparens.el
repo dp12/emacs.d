@@ -38,11 +38,11 @@
 ;; (define-key sp-keymap (kbd "C-<right>") 'sp-forward-slurp-sexp)
 (define-key sp-keymap (kbd "C-<left>") 'sp-forward-barf-sexp)
 ;; Breaks calc, so disable for now
-;; (define-key sp-keymap (kbd "C-M-<left>") 'sp-backward-slurp-sexp)
-;; (define-key sp-keymap (kbd "C-M-<right>") 'sp-backward-barf-sexp)
+(define-key sp-keymap (kbd "C-S-<left>") 'sp-backward-slurp-sexp)
+(define-key sp-keymap (kbd "C-S-<right>") 'sp-backward-barf-sexp)
 
 (define-key sp-keymap (kbd "M-D") 'sp-splice-sexp)
-(define-key sp-keymap (kbd "C-M-<delete>") 'sp-splice-sexp-killing-forward)
+(define-key sp-keymap (kbd "C-S-<delete>") 'sp-splice-sexp-killing-forward)
 (define-key sp-keymap (kbd "C-M-<backspace>") 'sp-splice-sexp-killing-backward)
 (define-key sp-keymap (kbd "C-S-<backspace>") 'sp-splice-sexp-killing-around)
 
