@@ -1100,7 +1100,7 @@ The full path into relative path insert it as a local file link in org-mode"
 ;; Guide-key
 (require 'guide-key)
 (diminish 'guide-key-mode)
-(setq guide-key/guide-key-sequence '("C-x r" "C-x 4" "C-x 5" "C-x v"))
+(setq guide-key/guide-key-sequence '("C-x r" "C-x 4" "C-x 5" "C-x v" "C-x j"))
 (guide-key-mode 1)
 
 ;; Minimap

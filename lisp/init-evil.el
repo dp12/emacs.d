@@ -402,6 +402,7 @@ to replace the symbol under cursor"
 ;; comment/uncomment lines
 (require 'evil-nerd-commenter)
 (evilnc-default-hotkeys)
+(setq evilnc-hotkey-comment-operator ",,")
 ;; }}
 
 ;; Do "ii" for same indentation, "ai" for same and different above
