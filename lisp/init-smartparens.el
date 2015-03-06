@@ -6,6 +6,13 @@
 (setq sp-autoskip-closing-pair 'always)
 (setq sp-hybrid-kill-entire-symbol nil)
 ;; (sp-use-paredit-bindings)
+(sp-pair "(" ")" :wrap "C-(")
+
+;; (defun my-wrap-with-paren (&optional arg)
+;;   (interactive "p")
+;;   (sp-select-next-thing-exchange arg)
+;;   (execute-kbd-macro (kbd "(")))
+;; (define-key smartparens-mode-map (kbd "C-(") 'my-wrap-with-paren)
 
 ;; (foo) bar -> (foo bar)
 (define-key smartparens-mode-map (kbd "C-S-<down>") 'sp-slurp-hybrid-sexp)
