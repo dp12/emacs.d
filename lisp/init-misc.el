@@ -1091,11 +1091,12 @@ The full path into relative path insert it as a local file link in org-mode"
 ;; (setq find-program "C:\\bin\\find.exe")
 ;; (setq find-program "C:\\cygwin\\bin\\find.exe")
 
-;; Smartrep
-;; (require 'smartrep)
-;; (smartrep-define-key global-map "C-x"
-;;   '(("l" . 'my-expand-lines)
-;;     ("k" . '(lambda () (interactive) (kill-buffer (window-buffer))))    ("0" . 'delete-window)))
+;; Hydra
+(require 'hydra)
+(defhydra hydra-C-x-extended-commands (global-map "C-x")
+  "global"
+  ("k" kill-buffer "kill buffer")
+  ("l" my-expand-lines "hippie line"))
 
 ;; Guide-key
 (require 'guide-key)
@@ -1128,15 +1129,6 @@ The full path into relative path insert it as a local file link in org-mode"
 
 ;; Diminish settings
 (diminish 'visual-line-mode)
-
-;; Magit settings
-(eval-after-load 'magit
-  '(progn
-     (set-face-foreground 'magit-diff-add "green3")
-     (set-face-foreground 'magit-diff-del "red3")
-     (when (not window-system)
-       (set-face-background 'magit-item-highlight "black"))))
-
 (with-eval-after-load 'autopair (diminish 'autopair-mode))
 (with-eval-after-load 'anzu (diminish 'anzu-mode))
 (with-eval-after-load 'undo-tree (diminish 'undo-tree-mode))
@@ -1160,7 +1152,7 @@ The full path into relative path insert it as a local file link in org-mode"
   (if (equal custom-enabled-themes '(tango-dark))
       (progn (load-theme 'leuven)
              ;; (progn (load-theme 'sanityinc-tomorrow-day)
-             (set-face-attribute 'default nil :font "Calibri" :height 140 :foreground "#FFFFF"))
+             (set-face-attribute 'default nil :font "Calibri" :height 120 :foreground "#FFFFF"))
     (progn (load-theme 'tango-dark)
            (set-face-attribute 'default nil :font "DejaVu Sans Mono" :height 120))))
 

@@ -35,7 +35,11 @@
        (interactive)
        (kill-buffer)
        (jump-to-register :magit-fullscreen))
-
+     ;; Color settings
+     (set-face-foreground 'magit-diff-add "green3")
+     (set-face-foreground 'magit-diff-del "red3")
+     (when (not window-system)
+       (set-face-background 'magit-item-highlight "black"))
      (define-key magit-status-mode-map (kbd "q") 'magit-quit-session)
      (define-key magit-status-mode-map (kbd "C-o 1") 'magit-show-level-1-all)
      (define-key magit-status-mode-map (kbd "C-o 2") 'magit-show-level-2-all)
