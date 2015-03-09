@@ -15,8 +15,8 @@
 ;; (define-key smartparens-mode-map (kbd "C-(") 'my-wrap-with-paren)
 
 ;; (foo) bar -> (foo bar)
-;; (define-key smartparens-mode-map (kbd "C-S-<down>") 'sp-slurp-hybrid-sexp)
-(define-key smartparens-mode-map (kbd "C-M-S-<right>") 'sp-slurp-hybrid-sexp)
+;; (define-key smartparens-mode-map (kbd "C-M-S-<right>") 'sp-slurp-hybrid-sexp)
+(define-key smartparens-mode-map (kbd "M-S-<right>") 'sp-slurp-hybrid-sexp)
 (define-key smartparens-mode-map (kbd "C-M-k") 'sp-kill-hybrid-sexp)
 (define-key smartparens-mode-map (kbd "C-M-t") 'sp-transpose-hybrid-sexp)
 (define-key smartparens-mode-map (kbd "C-M-S-p") 'sp-push-hybrid-sexp)

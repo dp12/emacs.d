@@ -169,6 +169,7 @@ to replace the symbol under cursor"
   "bu" 'backward-up-list
   "bb" '(lambda () (interactive) (switch-to-buffer nil))
   "ef" 'end-of-defun
+  "ed" 'ediff-buffers
   "db" 'sdcv-search-pointer ;; in another buffer
   "dt" 'sdcv-search-input+ ;; in tip
   "mf" 'mark-defun

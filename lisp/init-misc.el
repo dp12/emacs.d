@@ -1169,5 +1169,6 @@ The full path into relative path insert it as a local file link in org-mode"
 (defalias 'dtw 'delete-trailing-whitespace)
 (defalias 'tit 'toggle-indent-tab)
 (defalias 'xtm 'xterm-mouse-mode)
+(defalias 'wdcm 'wdired-change-to-wdired-mode)
 
 (provide 'init-misc)
