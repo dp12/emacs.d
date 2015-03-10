@@ -3,35 +3,35 @@
 ;;----------------------------------------------------------------------------
 ;; Ace-window
 (require 'ace-window)
-(defun def-rep-command (alist)
-    "Return a lambda that calls the first function of ALIST.
-It sets the transient map to all functions of ALIST,
-allowing you to repeat those functions as needed."
-    (lexical-let ((keymap (make-sparse-keymap))
-                  (func (cdar alist)))
-      (mapc (lambda (x)
-              (when x
-                (define-key keymap (kbd (car x)) (cdr x))))
-            alist)
-      (lambda (arg)
-        (interactive "p")
-        (when func
-          (funcall func arg))
-        (set-transient-map keymap t))))
+;; (defun def-rep-command (alist)
+;;     "Return a lambda that calls the first function of ALIST.
+;; It sets the transient map to all functions of ALIST,
+;; allowing you to repeat those functions as needed."
+;;     (lexical-let ((keymap (make-sparse-keymap))
+;;                   (func (cdar alist)))
+;;       (mapc (lambda (x)
+;;               (when x
+;;                 (define-key keymap (kbd (car x)) (cdr x))))
+;;             alist)
+;;       (lambda (arg)
+;;         (interactive "p")
+;;         (when func
+;;           (funcall func arg))
+;;         (set-transient-map keymap t))))
 
-(global-set-key (kbd "C-c w")
-      (def-rep-command
-       '(nil
-         ("h" . windmove-left)
-         ("l" . windmove-right)
-         ("j" . windmove-down)
-         ("k" . windmove-up)
-         ("w" . other-window)
-         ("f" . other-frame)
-         ("a" . ace-window)
-         ("s" . (lambda () (interactive) (ace-window 4)))
-         ("d" . (lambda () (interactive) (ace-window 16)))
-         )))
+;; (global-set-key (kbd "C-c w")
+;;       (def-rep-command
+;;        '(nil
+;;          ("h" . windmove-left)
+;;          ("l" . windmove-right)
+;;          ("j" . windmove-down)
+;;          ("k" . windmove-up)
+;;          ("w" . other-window)
+;;          ("f" . other-frame)
+;;          ("a" . ace-window)
+;;          ("s" . (lambda () (interactive) (ace-window 4)))
+;;          ("d" . (lambda () (interactive) (ace-window 16)))
+;;          )))
 
 (setq winner-dont-bind-my-keys t)
 (winner-mode 1)

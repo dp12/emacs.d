@@ -2274,19 +2274,19 @@ Below some empty line")))
       (evil-test-buffer
         "[l]ine 1\nline 2\nline 3\n"
         ("Vj>")
-        "[ ]   line 1\n    line 2\nline 3\n"))
+        "    [l]ine 1\n    line 2\nline 3\n"))
     (ert-info ("Shift char selection on whole line")
       (evil-test-buffer
         "[l]ine 1\nline 2\nline 3\n"
         ("v$>")
-        "[ ]   line 1\nline 2\nline 3\n"))
+        "    [l]ine 1\nline 2\nline 3\n"))
     (ert-info ("Shift visual with count")
       (evil-test-buffer
         "[l]ine 1\nline 2\nline 3\n"
         ("Vj3>")
-        "[ ]           line 1\n            line 2\nline 3\n"
+        "            [l]ine 1\n            line 2\nline 3\n"
         ("Vj2<")
-        "[ ]   line 1\n    line 2\nline 3\n"))
+        "    [l]ine 1\n    line 2\nline 3\n"))
     (ert-info ("Shift in insert state")
       (evil-test-buffer
         "line 1\nl[i]ne 2\nline 3\n"
@@ -6418,7 +6418,7 @@ if no previous selection")
                  '(evil-ex-range
                    (evil-ex-line (string-to-number "5") nil)
                    (evil-ex-line (string-to-number "27") nil))))
-  (should (equal (evil-ex-parse "5;$" nil 'range)
+  (should (equal (evil-ex-parse "5,$" nil 'range)
                  '(evil-ex-range
                    (evil-ex-line (string-to-number "5") nil)
                    (evil-ex-line (evil-ex-last-line) nil))))
@@ -6438,7 +6438,7 @@ if no previous selection")
                    (evil-ex-line (string-to-number "5") nil)
                    (evil-ex-line
                     nil (+ (evil-ex-signed-number (intern "-") nil))))))
-  (should (equal (evil-ex-parse "5;4+2-7-3+10-" nil 'range)
+  (should (equal (evil-ex-parse "5,4+2-7-3+10-" nil 'range)
                  '(evil-ex-range
                    (evil-ex-line (string-to-number "5") nil)
                    (evil-ex-line
@@ -6452,7 +6452,7 @@ if no previous selection")
                        (evil-ex-signed-number
                         (intern "+") (string-to-number "10"))
                        (evil-ex-signed-number (intern "-") nil))))))
-  (should (equal (evil-ex-parse ".-2;4+2-7-3+10-" nil 'range)
+  (should (equal (evil-ex-parse ".-2,4+2-7-3+10-" nil 'range)
                  '(evil-ex-range
                    (evil-ex-line
                     (evil-ex-current-line)
@@ -6487,6 +6487,30 @@ if no previous selection")
                     (+ (evil-ex-signed-number
                         (intern "+") (string-to-number "42"))))
                    nil))))
+
+(ert-deftest evil-text-ex-search-offset ()
+  "Test for addresses like /base//pattern/"
+  :tags '(evil ex)
+  (ert-info ("without base")
+    (evil-test-buffer
+      "[l]ine 1\naaa\nbbb\naaa\nccc\nddd"
+      (":/aaa/d")
+      "line 1\nbbb\naaa\nccc\nddd"))
+  (ert-info ("with base")
+    (evil-test-buffer
+      "[l]ine 1\naaa\nbbb\naaa\nccc\nddd"
+      (":/bbb//aaa/d")
+      "line 1\naaa\nbbb\nccc\nddd"))
+  (ert-info ("range without base")
+    (evil-test-buffer
+      "[l]ine 1\naaa\nbbb\naaa\nccc\nddd\nccc\neee\n"
+      (":/aaa/;/ccc/d")
+      "line 1\nddd\nccc\neee\n"))
+  (ert-info ("range with base")
+    (evil-test-buffer
+      "[l]ine 1\naaa\nbbb\naaa\nccc\nddd\nccc\neee\n"
+      (":/bbb//aaa/;/ddd//ccc/d")
+      "line 1\naaa\nbbb\neee\n")))
 
 (ert-deftest evil-test-ex-goto-line ()
   "Test if :number moves point to a certain line"

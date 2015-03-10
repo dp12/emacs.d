@@ -1091,19 +1091,6 @@ The full path into relative path insert it as a local file link in org-mode"
 ;; (setq find-program "C:\\bin\\find.exe")
 ;; (setq find-program "C:\\cygwin\\bin\\find.exe")
 
-;; Hydra
-(require 'hydra)
-(defhydra hydra-C-x-extended-commands (global-map "C-x")
-  "global"
-  ("k" kill-buffer "kill buffer")
-  ("l" my-expand-lines "hippie line"))
-
-;; Guide-key
-(require 'guide-key)
-(diminish 'guide-key-mode)
-(setq guide-key/guide-key-sequence '("C-x r" "C-x 4" "C-x 5" "C-x v" "C-x j"))
-(guide-key-mode 1)
-
 ;; Minimap
 (require 'minimap)
 (setq minimap-window-location 'right)

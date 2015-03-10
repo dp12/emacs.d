@@ -1,5 +1,44 @@
-;; KeyCHORD Configurations
+;; Keymap Configurations (Hydra, Guide-key, and keychord)
 
+;; Hydra
+(require 'hydra)
+(defhydra hydra-C-x-extended (global-map "C-x")
+  "global"
+  ("k" (lambda () (interactive) (kill-buffer nil)) "kill buffer silently" :color red)
+  ("K" kill-buffer "kill buffer")
+  ("l" my-expand-lines "hippie line")
+  ("x" (lambda () (interactive) (kill-buffer nil)) "assassinate buffer" :color blue)
+  ("q" nil "quit"))
+
+(define-key evil-normal-state-map
+ (kbd "C-e")
+ (defhydra hydra-register (:color blue)
+   "registers"
+   ("n" number-to-register "number")
+   ("+" increment-register "increment")
+   ("r" copy-rectangle-to-register "copy rectangle")
+   ("s" copy-to-register "copy")
+   ("p" point-to-register "point")
+   ("j" jump-to-register "jump")))
+
+(defhydra hydra-window ()
+  "window"
+  ("s" (lambda () (interactive) (ace-window 4)) "swap" :color blue)
+  ("w" other-window "other")
+  ("a" ace-window "ace")
+  ("h" windmove-left "left" :)
+  ("j" windmove-down "down")
+  ("k" windmove-up "up")
+  ("l" windmove-right "right")
+  ("d" (lambda () (interactive) (ace-window 16)) "delete")
+  ("q" nil "quit"))
+(global-set-key (kbd "C-c w") 'hydra-window/body)
+
+;; Guide-key
+(require 'guide-key)
+(diminish 'guide-key-mode)
+(setq guide-key/guide-key-sequence '("C-x r" "C-x 4" "C-x 5" "C-x v" "C-x j"))
+(guide-key-mode 1)
 ; Allow key chords
 (require 'key-chord)
 (key-chord-mode 1)
@@ -44,4 +83,4 @@
 (key-chord-define-global "TP" 'org-toggle-pretty-entities)
 (key-chord-define-global "WM" 'whitespace-mode)
 
-(provide 'init-key-chord)
+(provide 'init-keymaps)

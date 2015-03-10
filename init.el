@@ -131,7 +131,7 @@
   (require 'init-company))
 (require 'init-stripe-buffer)
 (require 'init-eim) ;;  cannot be idle-required
-(require 'init-key-chord)
+(require 'init-keymaps)
 (require 'init-forth)
 (require 'init-auctex)
 (require 'init-function-args)
@@ -273,6 +273,7 @@
  '(erc-input-face ((t (:foreground "dark orange"))))
  '(erc-my-nick-face ((t (:foreground "dodger blue" :weight bold))))
  '(hl-line ((t (:underline "green" :weight normal))) t)
+ '(hydra-face-blue ((t (:foreground "blue" :weight bold))))
  '(org-todo ((t (:foreground "red" :weight bold))))
  '(powerline-active3 ((t (:inherit mode-line :background "OliveDrab3" :foreground "black"))))
  '(powerline-evil-emacs-face ((t (:inherit mode-line :background "blue violet" :foreground "black" :weight bold))))
