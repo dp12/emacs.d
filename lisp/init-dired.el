@@ -34,9 +34,11 @@ if no files marked, always operate on current line in dired-mode
      ;; }
      (define-key dired-mode-map "/" 'diredext-exec-git-command-in-shell)
      (define-key dired-mode-map "a" 'ag)
+     (define-key dired-mode-map "K" 'dired-do-kill-lines)
      (define-key dired-mode-map (kbd "SPC") 'ace-jump-mode)
      (define-key dired-mode-map "H" 'dired-up-directory)
      (define-key dired-mode-map "L" 'dired-find-alternate-file)
+     (define-key dired-mode-map "W" 'wdired-change-to-wdired-mode)
      (define-key dired-mode-map "o" 'dired-sort-toggle-or-edit)
      (define-key dired-mode-map "v" 'dired-toggle-marks)
      ;; Xah Lee's code to avoid spawning too many buffers

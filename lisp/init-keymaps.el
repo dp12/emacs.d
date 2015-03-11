@@ -3,27 +3,31 @@
 ;; Hydra
 (require 'hydra)
 (defhydra hydra-C-x-extended (global-map "C-x")
-  "global"
-  ("k" (lambda () (interactive) (kill-buffer nil)) "kill buffer silently" :color red)
+  "C-x rep"
+  ("k" (lambda () (interactive) (kill-buffer nil)) "assassinate buffer" :color red)
   ("K" kill-buffer "kill buffer")
   ("l" my-expand-lines "hippie line")
   ("x" (lambda () (interactive) (kill-buffer nil)) "assassinate buffer" :color blue)
+  ("n" git-gutter:next-hunk "next gut hunk")
+  ("p" git-gutter:previous-hunk "prev gut hunk")
   ("q" nil "quit"))
 
 (define-key evil-normal-state-map
  (kbd "C-e")
  (defhydra hydra-register (:color blue)
-   "registers"
+   "register"
    ("n" number-to-register "number")
    ("+" increment-register "increment")
    ("r" copy-rectangle-to-register "copy rectangle")
    ("s" copy-to-register "copy")
    ("p" point-to-register "point")
-   ("j" jump-to-register "jump")))
+   ("j" jump-to-register "jump")
+   ("i" insert-register  "insert")))
 
 (defhydra hydra-window ()
   "window"
   ("s" (lambda () (interactive) (ace-window 4)) "swap" :color blue)
+  ("S" (lambda () (interactive) (ace-window 4)) "swap" :color red)
   ("w" other-window "other")
   ("a" ace-window "ace")
   ("h" windmove-left "left" :)
