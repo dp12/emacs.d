@@ -315,6 +315,8 @@ grab matched string, cssize them, and insert into kill ring"
 
 ;effective emacs item 3
 (global-set-key "\C-s" 'isearch-forward-regexp)
+(global-set-key (kbd "C-S-s") 'isearch-forward)
+(global-set-key (kbd "C-S-r") 'isearch-backward)
 (global-set-key "\M-s" 'isearch-backward-regexp)
 (global-set-key "\C-\M-s" 'tags-search)
 (global-set-key "\C-x\C-n" 'find-file-other-frame) ;open new frame with a file
