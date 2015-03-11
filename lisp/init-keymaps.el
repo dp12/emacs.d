@@ -41,7 +41,7 @@
 ;; Guide-key
 (require 'guide-key)
 (diminish 'guide-key-mode)
-(setq guide-key/guide-key-sequence '("C-x r" "C-x 4" "C-x 5" "C-x v" "C-x j"))
+(setq guide-key/guide-key-sequence '("C-x r" "C-x 4" "C-x 5" "C-x v" "C-x j" "C-c"))
 (guide-key-mode 1)
 ; Allow key chords
 (require 'key-chord)

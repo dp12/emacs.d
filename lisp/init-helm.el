@@ -73,18 +73,20 @@
       (global-set-key (kbd "C-x C-o") 'helm-find-files)
       (global-set-key (kbd "C-c f") 'helm-for-files)
       (global-set-key (kbd "C-c y") 'helm-c-yas-complete)
+      (global-set-key (kbd "C-c M-y") 'helm-show-kill-ring)
       (global-set-key (kbd "C-c i") 'helm-semantic-or-imenu)
       (global-set-key (kbd "C-c r") 'helm-resume)
       (setq helm-semantic-fuzzy-match t)
       (setq helm-imenu-fuzzy-match t)
       (setq helm-recentf-fuzzy-match t)
       (setq helm-buffers-fuzzy-match t)
+      ;; Disable for more accurate search
       ;; (setq helm-locate-fuzzy-match t)
 	  (require 'helm-swoop)
-      (global-set-key (kbd "C-c m s") 'helm-multi-swoop-all)
+      (global-set-key (kbd "C-x w") 'helm-swoop)
+      (global-set-key (kbd "C-x W") 'helm-multi-swoop-all)
+      (global-set-key (kbd "C-x C-o") 'ffap)
       )
-  (global-set-key (kbd "C-x C-o") 'ffap)
-  )
 
 ;; When doing isearch, hand the word over to helm-swoop
 (define-key isearch-mode-map (kbd "M-i") 'helm-swoop-from-isearch)
