@@ -86,7 +86,7 @@
       (global-set-key (kbd "C-x w") 'helm-swoop)
       (global-set-key (kbd "C-x W") 'helm-multi-swoop-all)
       (global-set-key (kbd "C-x C-o") 'ffap)
-      )
+      ))
 
 ;; When doing isearch, hand the word over to helm-swoop
 (define-key isearch-mode-map (kbd "M-i") 'helm-swoop-from-isearch)

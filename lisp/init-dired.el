@@ -38,6 +38,8 @@ if no files marked, always operate on current line in dired-mode
      (define-key dired-mode-map (kbd "SPC") 'ace-jump-mode)
      (define-key dired-mode-map "H" 'dired-up-directory)
      (define-key dired-mode-map "L" 'dired-find-file)
+     (define-key dired-mode-map (kbd "M-L") 'dired-find-file-other-window)
+     (define-key dired-mode-map (kbd "M-t") 'toggle-diredp-find-file-reuse-dir)
      (define-key dired-mode-map "W" 'wdired-change-to-wdired-mode)
      (define-key dired-mode-map "o" 'dired-sort-toggle-or-edit)
      (define-key dired-mode-map "v" 'dired-toggle-marks)
@@ -56,7 +58,6 @@ if no files marked, always operate on current line in dired-mode
                      ("firefox" "xml" "xhtml" "html" "htm" "mht")))
        (add-to-list 'dired-guess-shell-alist-default
                     (list (concat "\\." (regexp-opt (cdr file) t) "$")
-                          (car file))))
-     ))
+                          (car file))))))
 
 (provide 'init-dired)
