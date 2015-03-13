@@ -275,7 +275,7 @@ to replace the symbol under cursor"
   "rnl" 'rinari-find-log
   "rno" 'rinari-console
   "rnt" 'rinari-find-test
-  "rbf" 'revert-buffer
+  "rv" 'revert-buffer
   "rbd" 'robe-doc
   "rbj" 'robe-jump
   "rbr" 'robe-rails-refresh

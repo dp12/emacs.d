@@ -60,4 +60,12 @@ if no files marked, always operate on current line in dired-mode
                     (list (concat "\\." (regexp-opt (cdr file) t) "$")
                           (car file))))))
 
+;; From emacs wiki
+(defun kill-dired-buffers ()
+  (interactive)
+  (mapc (lambda (buffer)
+          (when (eq 'dired-mode (buffer-local-value 'major-mode buffer))
+            (kill-buffer buffer)))
+        (buffer-list)))
+
 (provide 'init-dired)
