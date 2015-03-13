@@ -1,0 +1,4 @@
+# name: param in
+# key: pai
+# --
+* @param ${1:name} [in]; ${2:description}
