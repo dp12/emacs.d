@@ -55,8 +55,8 @@
 (key-chord-define-global "vv" 'other-window)
 
 ; Helm
-(key-chord-define-global "WW" 'helm-swoop)
-(key-chord-define-global "HG" 'helm-do-ag)
+(key-chord-define-global "HG" 'helm-swoop)
+(key-chord-define-global "HJ" 'helm-swoop)
 (key-chord-define-global "HB" 'helm-bookmarks)
 
 ; Multiple Cursors
@@ -66,7 +66,7 @@
 
 ; Tagging
 (key-chord-define-global "qg" 'ggtags-find-tag-dwim)
-(key-chord-define-global "qw" 'ggtags-navigation-mode-abort)
+(key-chord-define-global "qw" 'pop-tag-mark)
 ; Cscope
 ;; (key-chord-define-global "qs" 'cscope-find-this-symbol)
 ;; (key-chord-define-global "QS" 'helm-cscope-find-this-symbol)

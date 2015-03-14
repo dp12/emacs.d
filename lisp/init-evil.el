@@ -175,6 +175,7 @@ to replace the symbol under cursor"
   "mf" 'mark-defun
   "em" 'erase-message-buffer
   "eb" 'eval-buffer
+  "sm" 'evil-show-marks
   "sd" 'sudo-edit
   "ss" 'evil-surround-region
   "sc" 'shell-command
@@ -404,7 +405,7 @@ to replace the symbol under cursor"
 ;; comment/uncomment lines
 (require 'evil-nerd-commenter)
 (evilnc-default-hotkeys)
-(setq evilnc-hotkey-comment-operator ",,")
+;; (setq evilnc-hotkey-comment-operator ",,")
 ;; }}
 
 ;; Do "ii" for same indentation, "ai" for same and different above

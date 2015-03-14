@@ -34,6 +34,7 @@ if no files marked, always operate on current line in dired-mode
      ;; }
      (define-key dired-mode-map "/" 'diredext-exec-git-command-in-shell)
      (define-key dired-mode-map "a" 'ag)
+     (define-key dired-mode-map (kbd "M-a") 'helm-ag)
      (define-key dired-mode-map "K" 'dired-do-kill-lines)
      (define-key dired-mode-map (kbd "SPC") 'ace-jump-mode)
      (define-key dired-mode-map "H" 'dired-up-directory)
