@@ -67,6 +67,8 @@
 ; Tagging
 (key-chord-define-global "qg" 'ggtags-find-tag-dwim)
 (key-chord-define-global "qw" 'pop-tag-mark)
+(key-chord-define-global "QG" 'helm-gtags-dwim)
+(key-chord-define-global "QW" 'helm-gtags-pop-stack)
 ; Cscope
 ;; (key-chord-define-global "qs" 'cscope-find-this-symbol)
 ;; (key-chord-define-global "QS" 'helm-cscope-find-this-symbol)
