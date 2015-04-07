@@ -207,7 +207,7 @@ to replace the symbol under cursor"
   "hgr" 'helm-gtags-find-rtag
   "hgt" 'helm-gtags-find-tag
   "hb" 'helm-bookmarks
-  "cg" 'helm-ls-git-ls
+  "hi" 'helm-ls-git-ls
   "ud" '(lambda ()(interactive) (gud-gdb (concat "gdb --fullname \"" (cppcm-get-exe-path-current-buffer) "\"")))
   "uk" 'gud-kill-yes
   "ur" 'gud-remove
@@ -231,7 +231,7 @@ to replace the symbol under cursor"
   "im" 'helm-imenu
   "." 'evil-ex
   ;; toggle overview,  @see http://emacs.wordpress.com/2007/01/16/quick-and-dirty-code-folding/
-  "gn" 'git-timemachine-show-next-revisio
+  "gn" 'git-timemachine-show-next-revision
   "gp" 'git-timemachine-show-previous-revision
   "gw" 'git-timemachine-kill-abbreviated-revision
   "ov" '(lambda () (interactive) (set-selective-display (if selective-display nil 1)))
@@ -283,6 +283,7 @@ to replace the symbol under cursor"
   "rbs" 'robe-start
   "ws" 'w3mext-hacker-search
   "hsp" 'helm-swoop
+  "hm" 'helm-multi-swoop-all
   "pe" 'project-explorer-toggle
   "hst" 'hs-toggle-fold
   "hsa" 'hs-toggle-fold-all

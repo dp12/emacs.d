@@ -1162,6 +1162,15 @@ The full path into relative path insert it as a local file link in org-mode"
                        t nil))
       (widen))))
 
+;; Format C buffer
+(defun reformat-cc-buffer ()
+  (interactive)
+   "Format the whole buffer."
+   (c-set-style "allman")
+   (indent-region (point-min) (point-max) nil)
+   (untabify (point-min) (point-max))
+   (save-buffer))
+
 ;; Toggle Microsoft Word-like writing settings
 (defun toggle-calibri-theme ()
   (interactive)

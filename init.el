@@ -231,6 +231,7 @@
      (ruby-compilation-executable . "rbx")
      (ruby-compilation-executable . "jruby"))))
  '(session-use-package t nil (session))
+ '(show-paren-mode t)
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#073642" 0.2))
  '(term-default-bg-color "#002b36")
  '(term-default-fg-color "#839496")
@@ -265,14 +266,14 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Ubuntu Mono" :foundry "unknown" :slant normal :weight normal :height 128 :width normal))))
+ '(default ((t (:family "Ubuntu Mono derivative Powerline" :foundry "unknown" :slant normal :weight normal :height 128 :width normal))))
  '(diredp-dir-heading ((t (:background "#00003F3F3434" :foreground "magenta"))))
  '(diredp-exec-priv ((t (:background "blue" :foreground "black"))))
  '(diredp-read-priv ((t (:background "gold" :foreground "black"))))
  '(diredp-write-priv ((t (:background "lime green" :foreground "black"))))
  '(erc-input-face ((t (:foreground "dark orange"))))
  '(erc-my-nick-face ((t (:foreground "dodger blue" :weight bold))))
- '(hl-line ((t (:underline "green" :weight normal))) t)
+ '(hl-line ((t (:underline "green" :weight normal))))
  '(hydra-face-blue ((t (:foreground "blue" :weight bold))))
  '(org-todo ((t (:foreground "red" :weight bold))))
  '(powerline-active3 ((t (:inherit mode-line :background "OliveDrab3" :foreground "black"))))
