@@ -208,6 +208,7 @@ to replace the symbol under cursor"
   "hgt" 'helm-gtags-find-tag
   "hb" 'helm-bookmarks
   "hi" 'helm-ls-git-ls
+  "hj" 'helm-browse-project
   "ud" '(lambda ()(interactive) (gud-gdb (concat "gdb --fullname \"" (cppcm-get-exe-path-current-buffer) "\"")))
   "uk" 'gud-kill-yes
   "ur" 'gud-remove
@@ -277,6 +278,7 @@ to replace the symbol under cursor"
   "rno" 'rinari-console
   "rnt" 'rinari-find-test
   "rv" 'revert-buffer
+  "rbf" 'revert-buffer
   "rbd" 'robe-doc
   "rbj" 'robe-jump
   "rbr" 'robe-rails-refresh

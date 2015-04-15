@@ -314,8 +314,8 @@ grab matched string, cssize them, and insert into kill ring"
 (global-set-key [f2] 'repeat-complex-command)
 
 ;effective emacs item 3
-(global-set-key "\C-s" 'isearch-forward-regexp)
-(global-set-key (kbd "C-S-s") 'isearch-forward)
+;; (global-set-key "\C-s" 'isearch-forward-regexp)
+(global-set-key (kbd "C-S-s") 'isearch-forward-regexp)
 (global-set-key (kbd "C-S-r") 'isearch-backward)
 (global-set-key "\M-s" 'isearch-backward-regexp)
 (global-set-key "\C-\M-s" 'tags-search)
@@ -1181,10 +1181,18 @@ The full path into relative path insert it as a local file link in org-mode"
     (progn (load-theme 'tango-dark)
            (set-face-attribute 'default nil :font "DejaVu Sans Mono" :height 120))))
 
+;; Custom Info Pages Setup
+(require 'info)
+(setq Info-directory-list
+(cons (expand-file-name "~/info/")
+Info-default-directory-list))
+
 ; Defaliases
 (defalias 'qrr 'query-replace-regexp)
 (defalias 'dtw 'delete-trailing-whitespace)
 (defalias 'tit 'toggle-indent-tab)
 (defalias 'xtm 'xterm-mouse-mode)
+(defalias 'hxl 'hexl-mode)
+(defalias 'ihx 'intel-hex-mode)
 
 (provide 'init-misc)
