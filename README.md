@@ -1,7 +1,7 @@
 ## Key Packages
 evil-mode, flx-ido, helm, smex, key-chord, hydra, company-mode, ggtags
 ## Overview
-This emacs configuration is a fork off of [Bin Chen](https://github.com/redguardtoo/emacs.d)'s vim-oriented emacs.d, which is in turn inspired by [Steve Purcell](https://github.com/purcell/emacs.d)'s classic setup. Refer to Bin Chen's repo for more info on how this setup is structured. As time goes by, every emacs setup tends to accumulate tons of unused keymappings. Therefore, the following commands/keybindings documented here are the ones that are my all-time favorites, which I use almost every single day.
+This emacs configuration is a fork off of Bin Chen's vim-oriented [emacs.d](https://github.com/redguardtoo/emacs.d), which is in turn inspired by Steve Purcell's [classic setup](https://github.com/purcell/emacs.d). Refer to Bin Chen's [repo](https://github.com/redguardtoo/emacs.d) for more info on how this setup is structured. As time goes by, every emacs setup tends to accumulate tons of unused keymappings. Therefore, the following commands/keybindings documented here are the ones that are my all-time favorites, which I use almost every single day.
 ## Keybindings Reference
 ### Most Essential
 Keybinding         | Description
@@ -10,7 +10,7 @@ Keybinding         | Description
 <kbd>C-c i</kbd>   | helm-semantic-or-imenu. Displays a list of all functions and variables in the current buffer. Try typing "fun" followed by `SPC` to filter and view only functions, then enter the function name and press `RET`.
 <kbd>, d j</kbd>   | dired-jump. Instantly opens up dired buffer for the folder of the current file. Press `^` to go up a directory, `>`/`<` to cycle through folders, `a` to launch an ag (grep) search, `d x` to mark and delete a file, `C` to copy, `R` to rename, and `RET` to visit a file. More dired info [here](http://ergoemacs.org/emacs/file_management.html).
 <kbd>HG</kbd>      | [helm-swoop](https://github.com/ShingoFukuyama/helm-swoop) on word under cursor. Shows all lines containing the word in current buffer, allow you to cycle through them with `C-n`/`C-p`. `C-c C-e` lets you edit the instances right there in the buffer.
-<kbd>C-c p A</kbd> | projectile-ag. Grep for a specified string in all files from the current buffer's git repository. [Ag](https://github.com/ggreer/the_silver_searcher), the silver searcher, is a more efficent grep program that must be installed.
+<kbd>C-c p A</kbd> | projectile-ag. Grep for a specified string in all files from the current buffer's git repository. [Ag](https://github.com/ggreer/the_silver_searcher), the silver searcher, is a more efficent grep program that must be installed as a prerequisite.
 <kbd>SPC</kbd>     | [ace-jump-mode](https://bbbscarter.wordpress.com/2012/09/13/emacs-bits-and-bobs/). In ace-jump-mode, press any character that you want your cursor jump to on the screen and then press the corresponding character that shows up. Once activated, lets you jump anywhere on your screen in usually two keystrokes.
 ### Common Emacs Commands 
 Keybinding         | Description
@@ -33,7 +33,7 @@ Keybinding         | Description
 <kbd>M-x load-theme</kbd>| Lets you select a color theme. Some pretty ones are tomorrow-night-paradise, solarized, monokai (a la Sublime Text), wombat, and tango-dark. Find the motherlode at [emacsthemes.caisah.info](http://emacsthemes.caisah.info/).
 
 ### Common Vim Commands
-See this [tutorial](http://linuxgazette.net/152/srinivasan.html) for some nice examples about text objects. This [reference](http://www.yolinux.com/TUTORIALS/LinuxTutorialAdvanced_vi.html) has just about all the essentials. The amazing thing is that almost all of them are supported by evil-mode.
+See this [tutorial](http://linuxgazette.net/152/srinivasan.html) for some nice info about text objects. For something comprehensive, this [reference](http://www.yolinux.com/TUTORIALS/LinuxTutorialAdvanced_vi.html) has just about all the essentials. The amazing thing is that almost all of them are supported by evil-mode.
 ### Expansion 
 Most of these commands can be issued repeatedly, if the first match isn't what you wanted.
 
@@ -41,7 +41,7 @@ Keybinding         | Description
 -------------------|------------------------------------------------------------
 <kbd>C-n</kbd>     | evil-paste-pop-next. Completes the current word with the closest match after your cursor.
 <kbd>C-p</kbd>     | evil-paste-pop-prev. Completes the current word with the closest match before your cursor.
-<kbd>M-/</kbd>     | hippie-expand. Completes the current word with the closest match, as determined by hippie. Hippie-expand uses sematnic and a list of sources to perform the complete. It even works inside query-replace, so you don't have to type long strings.
+<kbd>M-/</kbd>     | hippie-expand. Completes the current word with the closest match, as determined by hippie. Hippie-expand uses semantic and a list of sources to perform the complete. It even works inside query-replace, so you don't have to type long strings.
 <kbd>C-x l</kbd>   | hydra-C-x-extended/my-expand-lines. Do full line completion, like C-x C-l in vim.
 
 
@@ -57,12 +57,15 @@ In progress...
 `M-x` means Alt-x
 
 `, d j` means press the leader key (currently ","), followed by d and j.
-* this is a feature of the evil-leader package, part of evil-mode
+* this is a feature of the evil-leader package, part of evil-mode.
 
 `qr` means press q, quickly followed by r.
 * this is a key-chord; the order of the keys actually doesn't matter, so rq would do the same thing.
 
-`C-x c f` means press Ctrl-x, let go, press c, let go, and press f.
+`C-x c f` means press Ctrl-x, let go, press c, let go, and press f. Of course, it happens much more quickly than it sounds!
+
+## FAQ
+In progress...
 
 ## Non-emacs related tips ###
 Rebind your Right Alt to Ctrl to save your pinky! Your tucked thumb can push it with no complaints.
@@ -71,4 +74,4 @@ You can use `RAlt::Ctrl` in AutoHotKey on Windows, or `setxkbmap -option ctrl:ra
 
 ## Thoughts on emacs
 * I learned about emacs and org-mode when I was a lowly sophomore, as yet unable to distinguish the Linux kernel from corn. Default emacs keybindings feel awful and make the learning curve a lot steeper than it needs to be. Using evil-mode from the get-go will make emacs much more enjoyable to use.
-* Using emacs feels like using a tool that is always under development. Very often, something new you've added will break or not work quite right, and emacs puts the burden on you to fix it. If you want something rock-solid and fast, use vim. You might miss org-mode, however...
+* Using emacs feels like using a tool that is always under development. Very often, something new you've added will break or not work quite right, and emacs puts the burden on you to fix it. If you don't have a lot of setup time and want something rock-solid and fast, switch to vim instead. You can get ~90% of the features emacs has. However, it's less extensible (vimscript==blarg) and lacks a couple of advanced features, like wdired. Things like org-mode and eshell that have been "cloned" in vim often feel like cheaper, hacked-up versions of the real thing. In the end, the choice between vim and emacs is largely a matter of personality - a solid, no-frills surgical scalpel vs. an endlessly customizable Swiss army knife (to which you can attach a scalpel!). Your mileage may vary.
