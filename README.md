@@ -1,12 +1,13 @@
-### Key Packages
-evil-mode, fuzzy-ido, helm, smex, key-chord, hydra, company-mode, ggtags
-### Overview
+## Key Packages
+evil-mode, flx-ido, helm, smex, key-chord, hydra, company-mode, ggtags
+## Overview
 This emacs configuration is a fork off of [Bin Chen](https://github.com/redguardtoo/emacs.d)'s vim-oriented emacs.d, which is in turn inspired by [Steve Purcell](https://github.com/purcell/emacs.d)'s classic setup. Refer to Bin Chen's repo for more info on how this setup is structured. As time goes by, every emacs setup tends to accumulate tons of unused keymappings. Therefore, the following commands/keybindings documented here are the ones that are my all-time favorites, which I use almost every single day.
+## Keybindings Reference
 ### Most Essential
 Keybinding         | Description
 -------------------|------------------------------------------------------------
 <kbd>C-c f</kbd>   | helm-for-files. Allows you to find/switch-to/open a file from anywhere in your filesystem. Searches existing buffers, then recentf list, and finally taps into Unix locate.
-<kbd>C-c i</kbd>   | helm-semantic-or-imenu. Displays a list of all functions and variables in the current buffer. Try typing "fun" followed by SPC to filter and view only functions, then enter the function name and press RET.
+<kbd>C-c i</kbd>   | helm-semantic-or-imenu. Displays a list of all functions and variables in the current buffer. Try typing "fun" followed by `SPC` to filter and view only functions, then enter the function name and press `RET`.
 <kbd>, d j</kbd>   | dired-jump. Instantly opens up dired buffer for the folder of the current file. Press `^` to go up a directory, `>`/`<` to cycle through folders, `a` to launch an ag (grep) search, `d x` to mark and delete a file, `C` to copy, `R` to rename, and `RET` to visit a file. More dired info [here](http://ergoemacs.org/emacs/file_management.html).
 <kbd>HG</kbd>      | [helm-swoop](https://github.com/ShingoFukuyama/helm-swoop) on word under cursor. Shows all lines containing the word in current buffer, allow you to cycle through them with `C-n`/`C-p`. `C-c C-e` lets you edit the instances right there in the buffer.
 <kbd>C-c p A</kbd> | projectile-ag. Grep for a specified string in all files from the current buffer's git repository. [Ag](https://github.com/ggreer/the_silver_searcher), the silver searcher, is a more efficent grep program that must be installed.
@@ -21,11 +22,11 @@ Keybinding         | Description
 <kbd>qr</kbd>      | query-replace. Lets you enter a string and the string to replace it with. Press `y` to change the current selection and go to next instance, `n` to skip and go to next instance, and `,` to replace, but stay at the current location.
 <kbd>M-c</kbd>     | endless/capitalize. Capitalize the word after the cursor.
 <kbd>M-l</kbd>     | endless/downcase. Change the word after the cursor to lowercase.
-<kbd>M-u</kbd>     | endless/downcase. Change the word after the cursor to uppercase.
+<kbd>M-u</kbd>     | endless/upcase. Change the word after the cursor to uppercase.
 <kbd>C-x f</kbd>   | recentf-open-files. Lists your most recent files opened. Press a number from 0-9 to open the file you want.
 <kbd>bj</kbd>      | bookmark-jump. Extremely useful for switching to files and locations you visit frequently.
 <kbd>C-x r m</kbd> | bookmark-set. Lets you name and set a bookmark at the current position in the buffer. You can even bookmark a dired-buffer. Once you exit emacs normally or run bookmark-save, the bookmark is automatically stored in a file.
-<kbd>C-x \* \*</kbd> | calc. Launches emacs's special reverse-polish notation (RPN) calculator. Use `RET` to dup the stack and `TAB` to swap, kind of like Forth. Enter "16#<hexnum>" to enter a hex number and display hex with `d 6`. Change back to base 10 with `d 0`. Logs, square roots, trig, and bitwise operations are all supported!
+<kbd>C-x \* \*</kbd> | calc. Launches emacs's special reverse-polish notation (RPN) calculator. Use `RET` to dup the stack and `TAB` to swap, kind of like Forth. Enter "16#" followed by a number to input hex and display hex with `d 6`. Change back to base 10 with `d 0`. Logs, square roots, trig, matrix, and bitwise operations are all supported!
 <kbd>C-l</kbd>     | recenter-top-bottom. Centers the screen around where your cursor is. Handy for when you can't see the rest of your code.
 <kbd>C-g</kbd>     | keyboard-quit. Cancel whatever command you are currently in. Used almost all the time when you do something accidentally or want to exit some mode.
 <kbd>M-x package-install</kbd> | Install a package from the MELPA server. Use `M-x package-list-packages` to browse the full list.
@@ -48,9 +49,9 @@ Keybinding         | Description
 In progress...
 ### Vanilla Emacs
 In progress...
-### Additional Packages
+## Additional Packages
 In progress...
-### Keybinding Examples
+## Keybinding Examples
 `C-x` means Ctrl-x
 
 `M-x` means Alt-x
@@ -61,8 +62,13 @@ In progress...
 `qr` means press q, quickly followed by r.
 * this is a key-chord; the order of the keys actually doesn't matter, so rq would do the same thing.
 
-### Non-emacs related tips ###
+`C-x c f` means press Ctrl-x, let go, press c, let go, and press f.
+
+## Non-emacs related tips ###
 Rebind your Right Alt to Ctrl to save your pinky! Your tucked thumb can push it with no complaints.
 
-Use `RAlt::Ctrl` in AutoHotKey on Windows, or `setxkbmap -option ctrl:ralt_rctrl` in Linux.
+You can use `RAlt::Ctrl` in AutoHotKey on Windows, or `setxkbmap -option ctrl:ralt_rctrl` in Linux.
 
+## Thoughts on emacs
+* I learned about emacs and org-mode when I was a lowly sophomore, as yet unable to distinguish the Linux kernel from corn. Default emacs keybindings feel awful and make the learning curve a lot steeper than it needs to be. Using evil-mode from the get-go will make emacs much more enjoyable to use.
+* Using emacs feels like using a tool that is always under development. Very often, something new you've added will break or not work quite right, and emacs puts the burden on you to fix it. If you want something rock-solid and fast, use vim. You might miss org-mode, however...
