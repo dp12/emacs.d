@@ -16,7 +16,7 @@ Keybinding         | Description
 ### Common Emacs Commands 
 Keybinding         | Description
 -------------------|------------------------------------------------------------
-<kbd>C-;</kbd>     | comment-or-uncomment-region-or-line. A saner way of commenting code in emacs.
+<kbd>M-;</kbd>     | comment-or-uncomment-region-or-line. A saner way of commenting code in emacs.
 <kbd>u</kbd>       | undo-tree-undo. Lets you undo the latest change.
 <kbd>M-S--</kbd>   | undo-tree-redo. Lets you redo the latest change.
 <kbd>C-s</kbd>     | isearch-forward. Search file for word. Currently uses ace-isearch, which changes over to ace-jump for single character searches or helm-swoop for longer searches. Press `M-i` while in isearch to switch to helm-swoop and press `M-r` to switch to isearch-forward-regexp.
