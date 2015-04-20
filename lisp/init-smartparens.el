@@ -1,10 +1,24 @@
 (require 'smartparens-config)
-(smartparens-global-mode t)
-(show-smartparens-global-mode t)
 
 (setq sp-base-key-bindings 'paredit)
 (setq sp-autoskip-closing-pair 'always)
 (setq sp-hybrid-kill-entire-symbol nil)
+
+(setq sp-autoinsert-pair t
+    sp-autowrap-region t
+    sp-autodelete-opening-pair t
+    sp-autodelete-closing-pair t
+    sp-autodelete-pair t
+    sp-autodelete-wrap t
+    sp-autoescape-string-quote nil
+    sp-autoinsert-quote-if-followed-by-closing-pair nil
+    sp-show-pair-from-inside nil
+    sp-highlight-pair-overlay nil
+    sp-show-pair-delay 0)
+
+(smartparens-global-mode t)
+(show-smartparens-global-mode t)
+
 ;; (sp-use-paredit-bindings)
 (sp-pair "(" ")" :wrap "C-(")
 
