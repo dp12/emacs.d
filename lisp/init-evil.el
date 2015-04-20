@@ -445,4 +445,10 @@ to replace the symbol under cursor"
 
 (evil-define-key 'motion visual-line-mode-map "$" 'evil-end-of-visual-line 
                                               "^" 'evil-beginning-of-visual-line)
+
+;; Get back backward-kill-word from undo-tree
+(global-set-key (kbd "<M-backspace>") 'backward-kill-word)
+(define-key undo-tree-map (kbd "<M-backspace>") 'backward-kill-word)
+
+
 (provide 'init-evil)
