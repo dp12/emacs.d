@@ -128,5 +128,6 @@
       '(elisp "lisp"
               emacs-lisp "lisp"))
 ;; }}
+(when window-system (require 'org-mouse))
 
 (provide 'init-org)

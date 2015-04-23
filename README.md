@@ -1,15 +1,17 @@
 ## Key Packages
 evil-mode, flx-ido, helm, smex, key-chord, hydra, company-mode, ggtags
 ## Overview
-This emacs configuration is a fork off of Bin Chen's vim-oriented [emacs.d](https://github.com/redguardtoo/emacs.d), which is in turn inspired by Steve Purcell's [classic setup](https://github.com/purcell/emacs.d). Refer to Bin Chen's [repo](https://github.com/redguardtoo/emacs.d) for more info on how this setup is structured. As time goes by, every emacs setup tends to accumulate tons of unused keymappings. Therefore, the following commands/keybindings documented here are the ones that are my all-time favorites, most of which I use every single day.
+This is an emacs configuration that I use for my day-to-day work, which may be best described as robotic code monkey - kind of like the Terminator, only with urxvt and more bananas.
+
+My repo is a fork off of Bin Chen's vim-oriented [emacs.d](https://github.com/redguardtoo/emacs.d), which is in turn inspired by Steve Purcell's [classic setup](https://github.com/purcell/emacs.d). Refer to Bin Chen's [repo](https://github.com/redguardtoo/emacs.d) for more info on how this setup is structured. As time goes by, every emacs setup tends to accumulate tons of unused keymappings. Therefore, the following commands/keybindings documented here are the ones that are my all-time favorites, most of which I use every single day.
 ## Keybindings Reference
 ### Most Essential
 Keybinding         | Description
 -------------------|------------------------------------------------------------
-<kbd>C-c f</kbd>   | helm-for-files. Allows you to find/switch-to/open a file from anywhere in your filesystem. Searches existing buffers, then recentf list, and finally taps into Unix locate.
+<kbd>C-c f</kbd>   | helm-for-files. Allows you to find/switch-to/open a file from anywhere in your filesystem. Searches existing buffers, recentf list, bookmarks, files in cwd, and finally all files on your computer by tapping into Unix locate.
 <kbd>C-c i</kbd>   | helm-semantic-or-imenu. Displays a list of all functions and variables in the current buffer. Try typing "fun" followed by `SPC` to filter and view only functions, then enter the function name and press `RET`.
 <kbd>, d j</kbd>   | dired-jump. Instantly opens up dired buffer for the folder of the current file. Press `^` to go up a directory, `>`/`<` to cycle through folders, `a` to launch an ag (grep) search, `d x` to mark and delete a file, `C` to copy, `R` to rename, and `RET` to visit a file. More dired info [here](http://ergoemacs.org/emacs/file_management.html).
-<kbd>HG</kbd>      | [helm-swoop](https://github.com/ShingoFukuyama/helm-swoop) on word under cursor. Shows all lines containing the word in current buffer, allowing you to cycle through them with `C-n`/`C-p`. `C-c C-e` lets you edit the instances right there in the buffer.
+<kbd>HG</kbd>      | [helm-swoop](https://github.com/ShingoFukuyama/helm-swoop) on word under cursor. Shows all lines containing the word in current buffer, allowing you to cycle through them with `C-n`/`C-p`. Hit `M-i` to switch over to helm-multi-swoop, which does the same search in all open buffers. `C-c C-e` lets you edit the instances right there in the buffer.
 <kbd>C-c p A</kbd> | projectile-ag. Grep for a specified string in all files from the current buffer's git repository. [Ag](https://github.com/ggreer/the_silver_searcher), the silver searcher, is a more efficent grep program that must be installed as a prerequisite.
 <kbd>vv</kbd>      | other-window. Key-chord for switching to the other window; a much faster and ergonomic way of doing `C-x o`.
 <kbd>M-.</kbd>     | ggtags-find-tag-dwim. If the cursor is over a function call, jump to its definition. Pop back to your original cursor location with `M-*` (it's a stack, so you can pop out repeatedly). If the cursor is over a function definition, it finds the first reference (place where function is used). Use `M-n` and `M-p` to navigate between multiple references. Requires GNU Global to be installed.
@@ -29,7 +31,7 @@ Keybinding         | Description
 <kbd>C-x f</kbd>   | recentf-open-files. Lists your most recent files opened. Press a number from 0-9 to open the file you want.
 <kbd>bj</kbd>      | bookmark-jump. Extremely useful for switching to files and locations you visit frequently.
 <kbd>C-x r m</kbd> | bookmark-set. Lets you name and set a bookmark at the current position in the buffer. You can even bookmark a dired-buffer. Once you exit emacs normally or run bookmark-save, the bookmark is automatically stored in a file.
-<kbd>C-x \* \*</kbd> | calc. Launches emacs's special reverse-polish notation (RPN) calculator. Use `RET` to dup the stack and `TAB` to swap, kind of like Forth. Enter "16#" followed by a number to input hex and display hex with `d 6`. Change back to base 10 with `d 0`. Logs, square roots, trig, matrix, and bitwise operations are all supported!
+<kbd>C-x \* \*</kbd> | calc. Launches emacs' special reverse-polish notation (RPN) calculator. Use `RET` to dup the stack and `TAB` to swap, kind of like Forth. Enter "16#" followed by a number to input hex and display hex with `d 6`. Change back to base 10 with `d 0`. Logs, square roots, trig, matrix, and bitwise operations are all supported!
 <kbd>C-l</kbd>     | recenter-top-bottom. Centers the screen around where your cursor is. Handy for when you can't see the rest of your code.
 <kbd>C-x 1</kbd>   | Make the current buffer the only window.
 <kbd>C-x 2</kbd>   | Split the window horizontically.
@@ -47,7 +49,7 @@ Because of space, I can't cover all of the basic commands in vim, but some of th
 
 Vim's buffer-local marks also work and come in handy. Press `m` followed by a single character to store a location in the buffer (I usually just hit `m m`), and jump to it with the backtick character (`` `m `` in this case). `C-o`, `C-i`, and ``` `` ``` take you back through cursor history, forward through cursor history, and to your last position, respectively.
 
-Evil-mode also supports vim syntax for registers. Use `"ay` to copy a selection into register `a` instead of `C-x r s a`. You can paste it with `"ap`, instead of `C-x r i a`. However, the highly useful emacs point registers are unsupported, as far as I know (`C-x r SPC a` and `C-x r j a` for register a). Though similar to vim marks, they are not buffer-local and allow you to jump to a position in a file from any other file.
+Evil-mode also supports vim syntax for registers. Use `"ay` to copy a selection into register `a` instead of the traditional `C-x r s a` keybinding. You can paste the selection with `"ap`, instead of `C-x r i a`. However, the highly useful emacs point registers cannot be accessed by vim syntax, as far as I know (`C-x r SPC a` and `C-x r j a` for register a). Though similar to vim marks, they are not buffer-local and allow you to jump to a position in a file from any other file.
 
 It's also worth noting that `C-z` is used to switch between evil-mode and normal emacs mode, should you ever need the latter.
 ### Auto-completion 
@@ -66,7 +68,8 @@ Keybinding         | Description
 Keybinding         | Description
 -------------------|------------------------------------------------------------
 <kbd>M-S-right</kbd> | sp-slurp-hybrid-sexp. Press Alt+Shift+right arrow key to pull the next s-expression into your braces/brackets/parentheses. For example, if you have an `if {...}` statement followed by braces and you want to pull the next line into your if statement, issue this slurp command. This command is only the tip of the iceberg of smartparens, a package based on paredit, which is a [mind-boggling](http://emacsrocKs.com/e14.html) way of manipulating lisp and parentheses.
-<kbd>C-c s w</kbd> | hydra-window/body. Swap windows (for example, if you split windows with `C-x 3`).
+<kbd>C-c w s</kbd> | hydra-window/body. Swap windows (for example, if you split windows with `C-x 3`).
+<kbd>C-j</kbd>     | helm-gtags-select. When in a gtags-supported project, opens up a list of all tags (variables, function, etc.) to interactively select with helm.
 <kbd>g x</kbd>     | evil-exchange. If you have two words or regions you want to swap, select the first (using `v`) and press `g x`. Then, select the second and press `g x` to swap the two.
 <kbd>q</kbd>     | evil-record-macro. Press `q` followed by a letter to store the macro in that register and start recording a macro. You can perform a complex series of actions and then press `q` again to stop recording. Then, press `@a` to execute the macro. Use `@@` to repeat the last macro. It's useful for "automating" repetitive text editing tasks.
 <kbd>, x x</kbd>   | er/expand-region. Select the current region and expand by semantic units with `x`. Contract with `z`.
@@ -76,7 +79,7 @@ Keybinding         | Description
 <kbd>C-x up</kbd>  | winner-undo. Restores the previous window configuration. For example, if you have two windows open and you change one of them to a different file, you can restore the old view with this command. To undo the effect of your undo, do `C-x down` to run winner-redo.
 <kbd>m Q</kbd>     | In a dired buffer, mark all the files you want to replace text in with `m`. Then, press `Q` to do a dired-do-query-replace-regexp over all the files at once! You can use `C-x s !` to save all files afterwards.
 <kbd>M-x find-name-dired</kbd> | Allows you to specify a command and then a wildcard matching pattern (e.g. *.cpp) to grab a dired buffer with only those matching files. You can mark the files you want in dired and then run the query-replace method above. It's recursive and can be a huge timesaver. Ever had to replace hundreds of words in lots of different files from different directories? This dired command makes it a breeze.
-<kbd>W</kbd>       | wdired-change-to-wdired-mode. In a dired buffer, issue this command to make your dired buffer writable. You can then use all of emacs's text editing abilities to rename files. One of my favorite things to do is to change to wdired and then run a query-replace to rename a bunch of files.
+<kbd>W</kbd>       | wdired-change-to-wdired-mode. In a dired buffer, issue this command to make your dired buffer writable. You can then use all of emacs' text editing abilities to rename files. One of my favorite things to do is to change to wdired and then run a query-replace to rename a bunch of files.
 <kbd>C-x g</kbd>   | magit-status. Opens magit, an interface for running git commands. A good tutorial is located [here](http://vickychijwani.me/magit-part-i/) and a complete cheatsheet can be found [here](http://daemianmack.com/magit-cheatsheet.html). It's a lot easier to use magit to delete/ignore/stage files rather than having to type out the entire filename and path manually. You can even do interactive rebase with `E`.
 
 ### Vanilla Emacs
@@ -99,7 +102,13 @@ In progress...
 `C-x c f` means press Ctrl-x, let go, press c, let go, and press f. Of course, it happens much more quickly than it sounds!
 
 ## FAQ
-In progress...
+* What are some good resources for emacs?
+
+[emacs-fu - djcb](http://emacs-fu.blogspot.com/) - Useful tips and tricks for extending emacs; by the author of the mu4e emacs email client.
+[Sacha Chua](http://sachachua.com/blog/category/geek/emacs/) - Famous Canadian emacs user; great tips on new packages and org-mode. She also does webcast interviews with notable emacs users.
+[Xah Lee](http://ergoemacs.org/emacs/emacs.html) - opinionated emacs poweruser with great tutorials on basic operations and ergonomics.
+[emacsrocks Screencasts - Magnar Sveen](emacsrocks.com) - Mind-blowing demos of emacs features like paredit and multiple-cursors.
+[Github Awesome Emacs list](https://github.com/emacs-tw/awesome-emacs) - Community-curated list of resources for emacs. Not comprehensive by any means, but a good starting place.
 
 ## Non-emacs related tips ###
 Rebind your Right Alt to Ctrl to save your pinky! Your tucked thumb can push it with no complaints.
@@ -107,6 +116,7 @@ Rebind your Right Alt to Ctrl to save your pinky! Your tucked thumb can push it 
 You can use `RAlt::Ctrl` in AutoHotKey on Windows, or `setxkbmap -option ctrl:ralt_rctrl` under Linux.
 
 ## Thoughts on emacs
+* The commands documented above are only a tiny fraction of what's available in emacs. Some things I didn't cover, but still exist in this repo, include AucTeX (LaTeX editor), eshell (emacs' built-in shell), w3m (web browser), erc (IRC client), rectangles, lisp interpreters, [multiple cursors](http://emacsrocks.com/e13.html), yasnippet, and the immensely useful org-mode.
 * I learned about emacs and org-mode when I was a lowly sophomore, as yet unable to distinguish the Linux kernel from corn. Default emacs keybindings made me wonder what awful editor I had stumbled upon. They make the learning curve a lot steeper than it needs to be. As the saying goes, "emacs is an operating system that lacks a decent text editor." Vim is that decent text editor, so using evil-mode from the get-go will make emacs much more enjoyable to use. 
 * Using emacs feels like using a tool that is always under development. Very often, something new you've added will break or not work quite right, and emacs puts the burden on you to fix it. If you don't have a lot of setup time and want something rock-solid and fast, switch to vim instead. You can get ~90% of the features emacs has. However, it's less extensible (vimscript==blarg) and lacks a couple of advanced features, like wdired. Things like org-mode and eshell that have been "cloned" in vim often feel like cheaper, hacked-up versions of the real thing. In the end, the choice between vim and emacs is largely a matter of personality - a solid, no-frills surgical scalpel vs. an endlessly customizable Swiss army knife (to which you can attach a scalpel!). Your mileage may vary.
 * I'm planning on transitioning to [spacemacs](https://github.com/syl20bnr/spacemacs) in the future, as it seems to be a particularly powerful incarnation of evil-mode.
