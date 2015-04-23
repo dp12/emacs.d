@@ -1,7 +1,7 @@
 ## Key Packages
 evil-mode, flx-ido, helm, smex, key-chord, hydra, company-mode, ggtags
 ## Overview
-This is an emacs configuration that I use for my day-to-day work, which may be best described as robotic code monkey - kind of like the Terminator, only with urxvt and more bananas.
+This is an emacs configuration that I use for my day-to-day work, which may be best described as glorified robotic code monkey - kind of like the Terminator, only with urxvt and more banana.
 
 My repo is a fork off of Bin Chen's vim-oriented [emacs.d](https://github.com/redguardtoo/emacs.d), which is in turn inspired by Steve Purcell's [classic setup](https://github.com/purcell/emacs.d). Refer to Bin Chen's [repo](https://github.com/redguardtoo/emacs.d) for more info on how this setup is structured. As time goes by, every emacs setup tends to accumulate tons of unused keymappings. Therefore, the following commands/keybindings documented here are the ones that are my all-time favorites, most of which I use every single day.
 ## Keybindings Reference
@@ -24,6 +24,7 @@ Keybinding         | Description
 <kbd>M-S--</kbd>   | undo-tree-redo. Lets you redo the latest change.
 <kbd>C-s</kbd>     | isearch-forward. Search file for word. Currently uses ace-isearch, which changes over to ace-jump for single character searches or helm-swoop for longer searches. Press `M-i` while in isearch to switch to helm-swoop and press `M-r` to switch to isearch-forward-regexp.
 <kbd>qr</kbd>      | query-replace. Lets you enter a string and the string to replace it with. Press `y` to do replace on the current selection and go to next instance, `n` to skip replacing and go to next instance, and `,` to replace, but stay at the current location.
+<kbd>, e d</kbd>   | ediff-buffers. If you have two buffers open, you can run this command to select and diff them. Use `n` and `p` to visit next and previous diffs, and hit `a` to copy Buffer A's hunk or `b` to copy Buffer B's hunk. It can be used in conjunction with Magit to resolve git merge conflicts.
 <kbd>M-c</kbd>     | endless/capitalize. Capitalize the word after the cursor.
 <kbd>M-l</kbd>     | endless/downcase. Change the word after the cursor to lowercase.
 <kbd>M-u</kbd>     | endless/upcase. Change the word after the cursor to uppercase.
