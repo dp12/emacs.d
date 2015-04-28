@@ -108,7 +108,7 @@ What are some good resources for emacs?
 * [emacs-fu -- djcb](http://emacs-fu.blogspot.com/) - Useful tips and tricks for extending emacs; by the author of the mu4e emacs email client.
 * [Tuhdo's emacs guides](https://tuhdo.github.io/index.html) - Animated demos of advanced emacs features for C/C++ dev work.
 * [Sacha Chua](http://sachachua.com/blog/category/geek/emacs/) - Famous Canadian emacs user; great tips on new packages and org-mode. She also does webcast interviews with notable emacs users.
-* [Xah Lee](http://ergoemacs.org/emacs/emacs.html) - opinionated emacs poweruser with great tutorials on basic operations and ergonomics.
+* [Xah Lee](http://ergoemacs.org/emacs/emacs.html) - Opinionated emacs poweruser with great tutorials on basic operations and ergonomics.
 * [emacsrocks Screencasts -- Magnar Sveen](http://emacsrocks.com) - Mind-blowing demos of emacs features like paredit and multiple-cursors.
 * [Github Awesome Emacs list](https://github.com/emacs-tw/awesome-emacs) - Community-curated list of resources for emacs. Not comprehensive by any means, but a good starting place.
 

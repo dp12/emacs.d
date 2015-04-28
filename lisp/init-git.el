@@ -215,5 +215,8 @@
             ;; extract commit id and put into the kill ring
             (message "path=%s type=%s tgt-name=%s" path type tgt-name)
             ))
+
+(setq magit-last-seen-setup-instructions "1.4.0")
+
 (provide 'init-git)
 
