@@ -1,7 +1,7 @@
 ## Key Packages
 evil-mode, flx-ido, helm, smex, key-chord, hydra, company-mode, ggtags
 ## Overview
-This is an emacs configuration that I use for my day-to-day work, which may be best described as glorified robotic code monkey - kind of like the Terminator, only with urxvt and more banana.
+This is an emacs configuration that I use for my day-to-day work, which may be best described as glorified robotic code monkey - kind of like the Terminator, only with urxvt and much more head-scratching. We aim to make the customer go bananas over our product.
 
 My repo is a fork off of Bin Chen's vim-oriented [emacs.d](https://github.com/redguardtoo/emacs.d), which is in turn inspired by Steve Purcell's [classic setup](https://github.com/purcell/emacs.d). Refer to Bin Chen's [repo](https://github.com/redguardtoo/emacs.d) for more info on how this setup is structured. As time goes by, every emacs setup tends to accumulate tons of unused keymappings. Therefore, the following commands/keybindings documented here are the ones that are my all-time favorites, most of which I use every single day.
 ## Keybindings Reference
@@ -81,7 +81,7 @@ Keybinding         | Description
 <kbd>m Q</kbd>     | In a dired buffer, mark all the files you want to replace text in with `m`. Then, press `Q` to do a dired-do-query-replace-regexp over all the files at once! You can use `C-x s !` to save all files afterwards.
 <kbd>M-x find-name-dired</kbd> | Allows you to specify a command and then a wildcard matching pattern (e.g. *.cpp) to grab a dired buffer with only those matching files. You can mark the files you want in dired and then run the query-replace method above. It's recursive and can be a huge timesaver. Ever had to replace hundreds of words in lots of different files from different directories? This dired command makes it a breeze.
 <kbd>W</kbd>       | wdired-change-to-wdired-mode. In a dired buffer, issue this command to make your dired buffer writable. You can then use all of emacs' text editing abilities to rename files. One of my favorite things to do is to change to wdired and then run a query-replace to rename a bunch of files.
-<kbd>C-x g</kbd>   | magit-status. Opens magit, an interface for running git commands. A good tutorial is located [here](http://vickychijwani.me/magit-part-i/) and a complete cheatsheet can be found [here](http://daemianmack.com/magit-cheatsheet.html). It's a lot easier to use magit to delete/ignore/stage files rather than having to type out the entire filename and path manually. You can even do interactive rebase with `E`.
+<kbd>C-x g</kbd>   | magit-status. Opens magit, an powerful interface for running git commands. A good tutorial is located [here](http://vickychijwani.me/magit-part-i/) and a complete cheatsheet can be found [here](http://daemianmack.com/magit-cheatsheet.html). It's a lot easier to use magit to delete/ignore/stage files rather than having to type out the entire filename and path manually. You can even do interactive rebase with `E`.
 
 ### Vanilla Emacs
 In progress...
@@ -106,9 +106,10 @@ In progress...
 What are some good resources for emacs?
 
 * [emacs-fu -- djcb](http://emacs-fu.blogspot.com/) - Useful tips and tricks for extending emacs; by the author of the mu4e emacs email client.
+* [Tuhdo's emacs guides](https://tuhdo.github.io/index.html) - Animated demos of advanced emacs features for C/C++ dev work.
 * [Sacha Chua](http://sachachua.com/blog/category/geek/emacs/) - Famous Canadian emacs user; great tips on new packages and org-mode. She also does webcast interviews with notable emacs users.
 * [Xah Lee](http://ergoemacs.org/emacs/emacs.html) - opinionated emacs poweruser with great tutorials on basic operations and ergonomics.
-* [emacsrocks Screencasts -- Magnar Sveen](emacsrocks.com) - Mind-blowing demos of emacs features like paredit and multiple-cursors.
+* [emacsrocks Screencasts -- Magnar Sveen](http://emacsrocks.com) - Mind-blowing demos of emacs features like paredit and multiple-cursors.
 * [Github Awesome Emacs list](https://github.com/emacs-tw/awesome-emacs) - Community-curated list of resources for emacs. Not comprehensive by any means, but a good starting place.
 
 ## Non-emacs related tips ###
