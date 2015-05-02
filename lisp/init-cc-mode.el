@@ -17,6 +17,7 @@
   ;; Breaks dtrt-indent
   ;; (setq c-basic-offset 4)
   (setq c-style-variables-are-local-p nil)
+  (setq c-default-style "allman")
   ;give me NO newline automatically after electric expressions are entered
  (setq c-auto-newline nil)
  ;; (setq c-hungry-delete-key t)

@@ -6,7 +6,9 @@
 (autoload 'enable-paredit-mode "paredit")
 
 ;; {{
-(setq scheme-program-name "guile")
+;; (setq scheme-program-name "guile")
+(add-hook 'scheme-mode-hook 'geiser-mode)
+(setq geiser-active-implementations '(racket))
 (require 'quack)
 ;; }}
 
@@ -103,5 +105,7 @@
 
 (add-to-list 'auto-mode-alist '("\\.emacs-project\\'" . emacs-lisp-mode))
 (add-to-list 'auto-mode-alist '("archive-contents\\'" . emacs-lisp-mode))
+
+;; (require 'xscheme)
 
 (provide 'init-lisp)

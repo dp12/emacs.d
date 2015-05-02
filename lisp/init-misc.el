@@ -1194,5 +1194,6 @@ Info-default-directory-list))
 (defalias 'xtm 'xterm-mouse-mode)
 (defalias 'hxl 'hexl-mode)
 (defalias 'ihx 'intel-hex-mode)
+(defalias 'dfx 'dired-filter-by-extension)
 
 (provide 'init-misc)

@@ -22,6 +22,7 @@ if no files marked, always operate on current line in dired-mode
 ;; op open two new dired buffers side-by-side and give your new-found automagic power a whirl.
 ;; Now combine that with a nice window configuration stored in a register and you’ve got a pretty slick work flow.
 (setq dired-dwim-target t)
+(require 'dired-hacks-utils)
 (require 'dired+)
 
 (eval-after-load 'dired
@@ -34,6 +35,11 @@ if no files marked, always operate on current line in dired-mode
      ;; }
      (define-key dired-mode-map "/" 'diredext-exec-git-command-in-shell)
      (define-key dired-mode-map "a" 'ag)
+     (require 'dired-narrow)
+     (define-key dired-mode-map "N" 'dired-narrow)
+     (require 'dired-filter)
+     (define-key dired-mode-map "f" 'dired-filter-map)
+     (define-key dired-mode-map "X" 'dired-filter-by-extension)
      (define-key dired-mode-map (kbd "M-a") 'helm-ag)
      (define-key dired-mode-map "K" 'dired-do-kill-lines)
      (define-key dired-mode-map (kbd "SPC") 'ace-jump-mode)

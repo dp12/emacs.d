@@ -8,8 +8,16 @@
   ("K" kill-buffer "kill buffer")
   ("l" my-expand-lines "hippie line")
   ("x" (lambda () (interactive) (kill-buffer nil)) "assassinate buffer" :color blue)
+  ;; ("n" git-gutter:next-hunk "next gut hunk")
+  ;; ("p" git-gutter:previous-hunk "prev gut hunk")
+  ;; ("c" recenter-top-bottom "recenter window")
+  ("q" nil "quit"))
+
+(defhydra hydra-git-gutter (global-map "C-x")
+  "Git Gutter"
   ("n" git-gutter:next-hunk "next gut hunk")
   ("p" git-gutter:previous-hunk "prev gut hunk")
+  ("l" recenter-top-bottom "recenter window")
   ("q" nil "quit"))
 
 (define-key evil-normal-state-map
@@ -41,7 +49,7 @@
 ;; Guide-key
 (require 'guide-key)
 (diminish 'guide-key-mode)
-(setq guide-key/guide-key-sequence '("C-x r" "C-x 4" "C-x 5" "C-x v" "C-x j" "C-c"))
+(setq guide-key/guide-key-sequence '("C-x r" "C-x 4" "C-x 5" "C-x v" "C-x j" "C-c" "C-x C-k"))
 (guide-key-mode 1)
 ; Allow key chords
 (require 'key-chord)
@@ -66,8 +74,10 @@
 
 ; Tagging
 (key-chord-define-global "qg" 'ggtags-find-tag-dwim)
+(key-chord-define-global "qc" 'ggtags-find-reference)
 (key-chord-define-global "qw" 'pop-tag-mark)
 (key-chord-define-global "QG" 'helm-gtags-dwim)
+(key-chord-define-global "QC" 'helm-gtags-find-rtag)
 (key-chord-define-global "QW" 'helm-gtags-pop-stack)
 ; Cscope
 ;; (key-chord-define-global "qs" 'cscope-find-this-symbol)

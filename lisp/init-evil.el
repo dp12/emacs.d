@@ -159,8 +159,8 @@ to replace the symbol under cursor"
 (require 'evil-leader)
 (evil-leader/set-key
   "ae" 'evil-ace-jump-word-mode ; ,e for Ace Jump (word)
-  "al" 'evil-ace-jump-line-mode ; ,l for Ace Jump (line)
   "ac" 'evil-ace-jump-char-mode ; ,x for Ace Jump (char)
+  "al" 'evil-ace-jump-line-mode ; ,l for Ace Jump (line)
   "as" 'ack-same
   "ak" 'ack
   "aa" 'ack-find-same-file
@@ -312,7 +312,7 @@ to replace the symbol under cursor"
   "om" 'toggle-org-or-message-mode
   "ops" 'my-org2blog-post-subtree
   "ut" 'undo-tree-visualize
-  "al" 'align-regexp
+  "ax" 'align-regexp
   "ww" 'save-buffer
   "bk" 'buf-move-up
   "bj" 'buf-move-down
@@ -435,6 +435,18 @@ to replace the symbol under cursor"
 
 ;; Setup iedit
 (require 'evil-iedit-state)
+
+;; http://blog.binchen.org/posts/how-to-refactorrename-a-variable-name-in-a-function-efficiently.html
+(defun evilcvn-change-symbol-in-defun ()
+  "mark the region in defun (definition of function) and use string replacing UI in evil-mode
+to replace the symbol under cursor"
+  (interactive)
+  (let ((old (thing-at-point 'symbol)))
+    (mark-defun)
+    (unless (evil-visual-state-p)
+      (evil-visual-state))
+    (evil-ex (concat "'<,'>s/" (if (= 0 (length old)) "" "\<\(") old (if (= 0 (length old)) "" "\)\>/")))))
+(global-set-key (kbd "C-c ; s") 'evilcvn-change-symbol-in-defun)
 
 ; Evil org-mode keys
 (require 'evil-org)
