@@ -136,6 +136,7 @@
 (require 'init-auctex)
 (require 'init-function-args)
 (require 'init-smartparens)
+(require 'init-multiple-cursors)
 (require 'init-custom)
 
 ;; misc has some crucial tools I need immediately
