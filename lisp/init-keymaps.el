@@ -2,33 +2,36 @@
 
 ;; Hydra
 (require 'hydra)
-(defhydra hydra-C-x-extended (global-map "C-x")
-  "C-x rep"
+(defhydra hydra-kill-buffer (global-map "C-x")
+  "Kill Buffer"
   ("k" (lambda () (interactive) (kill-buffer nil)) "assassinate buffer" :color red)
   ("K" kill-buffer "kill buffer")
-  ("l" my-expand-lines "hippie line")
   ("x" (lambda () (interactive) (kill-buffer nil)) "assassinate buffer" :color blue)
-  ;; ("n" git-gutter:next-hunk "next gut hunk")
-  ;; ("p" git-gutter:previous-hunk "prev gut hunk")
-  ;; ("c" recenter-top-bottom "recenter window")
   ("q" nil "quit"))
 
 (defhydra hydra-git-gutter (global-map "C-x")
   "Git Gutter"
   ("n" git-gutter:next-hunk "next gut hunk")
   ("p" git-gutter:previous-hunk "prev gut hunk")
+  ("c" recenter-top-bottom "recenter window")
   ("l" recenter-top-bottom "recenter window")
+  ("q" nil "quit"))
+
+(defhydra hydra-hippie-line (global-map "C-x")
+  "Expand Line"
+  ("l" my-expand-lines "hippie line")
   ("q" nil "quit"))
 
 (define-key evil-normal-state-map
  (kbd "C-e")
  (defhydra hydra-register (:color blue)
-   "register"
+   "Register"
    ("n" number-to-register "number")
    ("+" increment-register "increment")
    ("r" copy-rectangle-to-register "copy rectangle")
    ("s" copy-to-register "copy")
    ("p" point-to-register "point")
+   ("f" frameset-to-register "frame")
    ("j" jump-to-register "jump")
    ("i" insert-register  "insert")))
 
