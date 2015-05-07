@@ -189,6 +189,7 @@ to replace the symbol under cursor"
   "fn" 'cp-filename-of-current-buffer
   "fp" 'cp-fullpath-of-current-buffer
   "dj" 'dired-jump ;; open the dired from current file
+  "do" 'dired-jump-other-window
   "ff" 'toggle-full-window ;; I use WIN+F in i3
   "tm" 'get-term
   "px" 'paste-from-x-clipboard
