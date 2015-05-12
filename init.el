@@ -234,6 +234,7 @@
  '(session-use-package t nil (session))
  '(show-paren-mode t)
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#073642" 0.2))
+ '(sp-autoescape-string-quote-if-empty (quote (python-mode c-mode cc-mode)))
  '(term-default-bg-color "#002b36")
  '(term-default-fg-color "#839496")
  '(tool-bar-mode nil)

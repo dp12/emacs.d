@@ -35,6 +35,9 @@ if no files marked, always operate on current line in dired-mode
      ;; }
      (define-key dired-mode-map "/" 'diredext-exec-git-command-in-shell)
      (define-key dired-mode-map "a" 'ag)
+     ;; dired-k
+     (require 'dired-k)
+     (define-key dired-mode-map (kbd "M-k") 'dired-k)
      (require 'dired-narrow)
      (define-key dired-mode-map "N" 'dired-narrow)
      (require 'dired-filter)
@@ -74,5 +77,6 @@ if no files marked, always operate on current line in dired-mode
           (when (eq 'dired-mode (buffer-local-value 'major-mode buffer))
             (kill-buffer buffer)))
         (buffer-list)))
+
 
 (provide 'init-dired)

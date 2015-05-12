@@ -5,8 +5,8 @@
 
 ;; Reclaim keybindings
 (define-key function-args-mode-map (kbd "M-i") 'tab-to-tab-stop)
-;; (define-key function-args-mode-map (kbd "M-w") 'fa-show)
+(define-key function-args-mode-map (kbd "M-w") 'fa-show)
 (define-key function-args-mode-map (kbd "M-u") 'endless/upcase)
 ;; fa-abort actually toggles between fa-show and fa-abort
-(define-key function-args-mode-map (kbd "M-w") 'fa-abort)
+(define-key function-args-mode-map (kbd "M-W") 'fa-abort)
 (provide 'init-function-args)

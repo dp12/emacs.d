@@ -5,6 +5,8 @@
       'c-basic-offset
       (c-lineup-topmost-intro-cont langelem))))
 
+;; Disable aggressive indent unless desired
+;; (add-hook 'c-mode-hook #'aggressive-indent-mode)
 
 ;C/C++ SECTION
 (defun my-c-mode-hook ()

@@ -11,8 +11,11 @@
 
 (defhydra hydra-git-gutter (global-map "C-x")
   "Git Gutter"
-  ("n" git-gutter:next-hunk "next gut hunk")
-  ("p" git-gutter:previous-hunk "prev gut hunk")
+  ("n" git-gutter:next-hunk "next hunk")
+  ("p" git-gutter:previous-hunk "prev hunk")
+  ("V" git-gutter:revert-hunk "revert hunk")
+  ("=" git-gutter:popup-hunk "popup hunk")
+  ("s" git-gutter:stage-hunk "stage hunk")
   ("c" recenter-top-bottom "recenter window")
   ("l" recenter-top-bottom "recenter window")
   ("q" nil "quit"))

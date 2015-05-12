@@ -145,7 +145,8 @@ ARCHIVE is the string name of the package archive.")
     company-anaconda
     anaconda-mode
     faceup
-    racket-mode)
+    racket-mode
+    names)
   "Don't install any Melpa packages except these packages")
 
 ;; Don't take Melpa versions of certain packages
@@ -290,6 +291,9 @@ ARCHIVE is the string name of the package archive.")
 (require-package 'helm-projectile)
 (require-package 'multiple-cursors)
 (require-package 'geiser)
+(require-package 'dired-k)
+(require-package 'names)
+(require-package 'aggressive-indent)
 ;; (require-package 'evil-iedit-state)
 ;; (require-package 'clean-aindent-mode)
 ;; (require-package 'helm-swoop)

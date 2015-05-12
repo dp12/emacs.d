@@ -80,8 +80,7 @@
       (setq helm-imenu-fuzzy-match t)
       (setq helm-recentf-fuzzy-match t)
       (setq helm-buffers-fuzzy-match t)
-      ;; Disable for more accurate search
-      ;; (setq helm-locate-fuzzy-match t)
+      (setq helm-locate-fuzzy-match t)
 	  (require 'helm-swoop)
       (global-set-key (kbd "C-x w") 'helm-swoop)
       (global-set-key (kbd "C-x W") 'helm-multi-swoop-all)

@@ -1,11 +1,11 @@
-;;; function-args.el --- C++ completion for GNU Emacs
+;;; function-args.el --- C++ completion for GNU Emacs -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2013-2014  Oleh Krehel
 
 ;; Author: Oleh Krehel <ohwoeowho@gmail.com>
 ;; URL: https://github.com/abo-abo/function-args
 ;; Version: 0.5.1
-;; Package-Requires: ((helm "1.6.5"))
+;; Package-Requires: ((swiper "0.2.0"))
 
 ;; This file is not part of GNU Emacs
 
@@ -44,9 +44,6 @@
   (require 'cl))
 (require 'semantic/ia)
 (require 'semantic/db-find)
-(require 'helm)
-(require 'helm-help)
-(require 'helm-source)
 
 ;; ——— Customization ———————————————————————————————————————————————————————————
 (defgroup function-args nil
@@ -69,9 +66,10 @@
   :type 'integer
   :group 'function-args)
 
-(defcustom moo-select-method 'helm
+(defcustom moo-select-method 'ivy
   "Method to select a candidate from a list of strings."
   :type '(choice
+          (const :tag "Ivy" ivy)
           (const :tag "Helm" helm)
           (const :tag "Helm fuzzy" helm-fuzzy)
           (const :tag "Plain" display-completion-list))
@@ -91,22 +89,22 @@
   :group 'function-args-faces)
 
 (defface fa-face-hint-bold
-    '((t (:background "#fff3bc" :bold t)))
+  '((t (:background "#fff3bc" :bold t)))
   "Basic hint face with bold font. Bold is used to signify the current element."
   :group 'function-args-faces)
 
 (defface fa-face-type
-    '((t (:inherit 'font-lock-type-face :background "#fff3bc")))
+  '((t (:inherit 'font-lock-type-face :background "#fff3bc")))
   "Face for displaying types."
   :group 'function-args-faces)
 
 (defface fa-face-type-bold
-    '((t (:inherit 'font-lock-type-face :background "#fff3bc" :bold t)))
+  '((t (:inherit 'font-lock-type-face :background "#fff3bc" :bold t)))
   "Face for displaying types. Bold is used to signify the current element"
   :group 'function-args-faces)
 
 (defface fa-face-semi
-    '((t (:foreground "#2a00ff" :background "#fff3bc" :bold t)))
+  '((t (:foreground "#2a00ff" :background "#fff3bc" :bold t)))
   "Face for displaying separators."
   :group 'function-args-faces)
 
@@ -116,7 +114,7 @@
   :group 'function-args-faces)
 
 (defface fa-face-type-compound
-    '((t (:inherit font-lock-type-face)))
+  '((t (:inherit font-lock-type-face)))
   "Face for compound types."
   :group 'function-args-faces)
 
@@ -761,14 +759,22 @@ TYPE and NAME are strings."
 (defun moo-jump-local ()
   "Select a tag to jump to from tags defined in current buffer."
   (interactive)
-  (let ((tags (semantic-fetch-tags)))
+  (let* ((tags (semantic-fetch-tags))
+         (preselect (moo-tag->str (semantic-current-tag)))
+         (preselect (when (stringp preselect)
+                      (regexp-quote preselect))))
     (moo-select-candidate
      (if (memq major-mode '(c++-mode c-mode))
-         (mapcar
-          (lambda (x) (cons x (moo-tag->str x)))
-          (moo-flatten-namepaces tags))
+         (delq nil
+               (mapcar
+                (lambda (x)
+                  (let ((s (moo-tag->str x)))
+                    (when s
+                      (cons s x))))
+                (moo-flatten-namepaces tags)))
        tags)
-     #'moo-action-jump)))
+     #'moo-action-jump
+     preselect)))
 
 (defun moo-reset-superclasses-cache ()
   "Reset `fa-superclasses'."
@@ -910,7 +916,7 @@ PARAMS are passed further to `moo-action-insert'."
   "Return for TAG a cons (TAG . STR).
 STR is the result of `moo-tag->str' on TAG,
 NAME is the TAG name."
-  (cons tag (moo-tag->str tag)))
+  (cons (moo-tag->str tag) tag))
 
 (defun moo-action-insert (candidate formatter &optional prefix)
   "Insert tag CANDIDATE.
@@ -939,42 +945,42 @@ When PREFIX is not nil, erase it before inserting."
         (t
          (error "Unexpected"))))
 
-(defun moo-select-candidate (candidates action &optional name)
-  (setq name (or name "semantic tags"))
-  (if (eq moo-select-method 'display-completion-list)
-      (with-output-to-temp-buffer "*moo-jump*"
-        (display-completion-list
-         (all-completions "" (mapcar #'caar candidates))))
+(defun moo-select-candidate (candidates action &optional preselect)
+  (cond ((eq moo-select-method 'display-completion-list)
+         (with-output-to-temp-buffer "*moo-jump*"
+           (display-completion-list
+            (all-completions "" candidates))))
 
-    (let ((candidates
-           (delq nil (mapcar
-                      (lambda (x)
-                        (if (listp x)
-                            (if (stringp (cdr x))
-                                (cons (cdr x) (car x))
-                              (when (stringp (car x))
-                                (cons (car x) x)))
-                          x))
-                      candidates)))
-          (preselect
-           (regexp-quote (or (moo-tag->str (semantic-current-tag))
-                             ""))))
-      (cl-case moo-select-method
-        (helm
+        ((eq moo-select-method 'ivy)
+         (require 'ivy)
+         (let ((ivy-height 20))
+           (ivy-read "tag: " candidates
+                     :preselect preselect
+                     :action (lambda ()
+                               (funcall
+                                action (cdr (assoc ivy--current candidates)))))))
+
+        ((prog1 (eq moo-select-method 'helm)
+           (require 'helm)
+           (require 'helm-help)
+           (require 'helm-source))
          (helm :sources
-               `((name . ,name)
+               `((name . "semantic tags")
                  (candidates . ,candidates)
                  (action . ,action))
                :preselect preselect
                :buffer "*moo-jump*"))
-        (helm-fuzzy
+
+        ((eq moo-select-method 'helm-fuzzy)
          (helm :sources
-               (helm-build-sync-source name
+               (helm-build-sync-source "semantic tags"
                  :candidates candidates
                  :fuzzy-match t
                  :action action)
                :preselect preselect
-               :buffer "*moo-jump*"))))))
+               :buffer "*moo-jump*"))
+        (t
+         (error "Bad `moo-select-method': %S" moo-select-method))))
 
 (defun moo-action-jump (tag)
   (when (semantic-tag-p tag)
@@ -1587,6 +1593,36 @@ At least what the syntax thinks is a list."
     (and (or (semantic-tag-with-position-p first)
              (semantic-tag-get-attribute first :line))
          (semantic-tag-file-name first))))
+
+(defun moo-doxygen ()
+  "Generate a doxygen yasnippet and expand it with `aya-expand'.
+The point should be on the top-level function name."
+  (interactive)
+  (move-beginning-of-line nil)
+  (let ((tag (semantic-current-tag)))
+    (unless (semantic-tag-of-class-p tag 'function)
+      (error "Expected function, got %S" tag))
+    (let* ((name (semantic-tag-name tag))
+           (attrs (semantic-tag-attributes tag))
+           (args (plist-get attrs :arguments))
+           (ord 1))
+      (setq aya-current
+            (format
+             "/**
+* $1
+*
+%s
+* @return $%d
+*/
+"
+             (mapconcat
+              (lambda (x)
+                (format "* @param %s $%d"
+                        (car x) (incf ord)))
+              args
+              "\n")
+             (incf ord)))
+      (aya-expand))))
 
 (provide 'function-args)
 
